@@ -1,1 +1,1 @@
-# maktab_management
+# Hifdh Class Management System
