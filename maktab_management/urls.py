@@ -17,6 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+<<<<<<< HEAD
 urlpatterns = [
     path('admin/', admin.site.urls),
+=======
+from hifdh_management import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.HifdhTableView.as_view(), name='home'),
+
+>>>>>>> 8f052ec (initial setup)
 ]
