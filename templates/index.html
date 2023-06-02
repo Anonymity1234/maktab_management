@@ -3,10 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <title>Hifdh Tracking</title>
+    <style>
+        #tableData {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #tableData td, #tableData th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #tableData tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #tableData tr:hover {
+            background-color: #ddd;
+        }
+
+        #tableData th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Hello World!</h1>
+{#<div id="myform">#}
+{#    <h4>Fill the below form:</h4>#}
+{#    <label>Name:</label>#}
+{#    <input type="text" id="name"><br><br>#}
+{#    <label>Surah:</label>#}
+{#    <input type="text" id="surah"><br><br>#}
+{#    <label>Ayah Start:</label>#}
+{#    <input type="number" id="ayah-start"><br><br>#}
+{#    <label>Ayah End:</label>#}
+{#    <input type="number" id="ayah-end"><br><br>#}
+{#    <label>Type:</label>#}
+{#    <input type="text" id="type"><br><br>#}
+{#    <label>Mistakes:</label>#}
+{#    <input type="number" id="mistakes"><br><br>#}
+{#    <label>Stuck:</label>#}
+{#    <input type="number" id="stuck"><br><br>#}
+{#    <button id="add" value="Add" onclick="addTableRow()">Add Data to Table</button>#}
+{#</div>#}
+
+<div>
+    <h4>Student Record</h4>
+    <table id="tableData" style="border:solid; cellpadding:2">
+        <tr>
+            <td><b>Student Name</b></td>
+            <td><b>Surah</b></td>
+            <td><b>Ayah Start</b></td>
+            <td><b>Ayah End</b></td>
+            <td><b>Type</b></td>
+            <td><b>Mistakes</b></td>
+            <td><b>Stuck</b></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+
+    window.onload = function () {
+
+        let studentNames = ['Aaraiz Khan', 'Abdul Aziz', 'Abdullah Tariq', 'Adeel Siddiqui', 'Ali Awsaf Tayeeb', 'Anas Malik', 'Anas Sher', 'Ayesha Mukry', 'Muhammad Mukry', 'Mustafa Mukry', 'Shahwaiz Khan', 'Syed Muhammad Affan Karim', 'Syed Muhammad Hassan Karim', 'Umair Asif'];
+
+        let surahNames = ['1- الفاتحة', '2- البقرة', '3- آل عمران', '4- النساء', '5- المائدة', '6- الأنعام', '7- الأعراف', '8- الأنفال', '9- التوبة', '10- يونس', '11- هود', '12- يوسف', '13- الرعد', 'إبراهيم', 'الحجر', 'النحل', 'الإسراء', 'الكهف', 'مريم', 'طه', 'الأنبياء', 'الحج', 'المؤمنون', 'النور', 'الفرقان', 'الشعراء', 'النمل', 'القصص', 'العنكبوت', 'الروم', 'لقمان', 'السجدة', 'الأحزاب', 'سبأ', 'فاطر', 'يس', 'الصافات', 'ص', 'الزمر', 'غافر', 'فصلت', 'الشورى', 'الزخرف', 'الدخان', 'الجاثية', 'الأحقاف', 'محمد', 'الفتح', 'الحجرات', 'ق', 'الذاريات', 'الطور', 'النجم', 'القمر', 'الرحمن', 'الواقعة', 'الحديد', 'المجادلة', 'الحشر', 'الممتحنة', 'الصف', 'الجمعة', 'المنافقون', 'التغابن', 'الطلاق', 'التحريم', 'الملك', 'القلم', 'الحاقة', 'المعارج', 'نوح', 'الجن', 'المزمل', 'المدثر', 'القيامة', 'الإنسان', 'المرسلات', 'النبأ', 'النازعات', 'عبس', 'التكوير', 'الإنفطار', 'المطففين', 'الانشقاق', 'البروج', 'الطارق', 'الأعلى', 'الغاشية', 'الفجر', 'البلد', 'الشمس', 'الليل', 'الضحى', 'الشرح', 'التين', 'العلق', ' القدر', 'البينة', 'الزلزلة', 'العاديات', 'القارعة', 'التكاثر', 'العصر', 'الهمزة', 'الفيل', 'قريش', 'الماعون', 'الكوثر', 'الكافرون', 'النصر', 'المسد', 'الإخلاص', 'الفلق', 'الناس'
+        ];
+
+        for (let i = 0; i < studentNames.length; i++) {
+            let table = document.getElementById("tableData");
+            let row = table.insertRow();
+            let nameCell = row.insertCell(0);
+            let surahCell = row.insertCell(1)
+
+            nameCell.innerText = studentNames[i];
+            let selectTag = document.createElement('select');
+            surahNames.map((surah, i) => {
+                let opt = document.createElement("option");
+                opt.value = i; // the index
+                opt.innerHTML = surah;
+                selectTag.append(opt);
+            });
+            surahCell.appendChild(selectTag);
+            let ayahStartCell = row.insertCell(2);
+            let ayahEndCell = row.insertCell(3);
+            let typeCell = row.insertCell(4);
+            let mistakesCell = row.insertCell(5);
+            let stuckCell = row.insertCell(6);
+
+            let ayahStartInput = document.createElement("input");
+            ayahStartInput.type = "number";
+            ayahStartInput.name = "ayahStart";
+            ayahStartCell.appendChild(ayahStartInput);
+
+            let ayahEndInput = document.createElement("input");
+            ayahEndInput.type = "number";
+            ayahEndInput.name = "ayahEnd";
+            ayahEndCell.appendChild(ayahEndInput);
+
+            let typeInput = document.createElement("input");
+            typeInput.type = "number";
+            typeInput.name = "type";
+            typeCell.appendChild(typeInput);
+
+            let mistakeInput = document.createElement("input");
+            mistakeInput.type = "number";
+            mistakeInput.name = "mistake";
+            mistakesCell.appendChild(mistakeInput);
+
+            let stuckInput = document.createElement("input");
+            stuckInput.type = "number";
+            stuckInput.name = "ayahStart";
+            stuckCell.appendChild(stuckInput);
+
+
+            {##}
+            {#for (surah in surahNames) {#}
+            {#    let option = document.createElement("option");#}
+            {##}
+            {#    let surahCell = row.insertCell(1).innerText(surah);#}
+            {##}
+
+            // Add additional cells if needed and set their values
+
+            // For example:
+            // let surahCell = row.insertCell(1);
+            // surahCell.innerText = "Some Surah";
+        }
+
+        {#for (let i = 0; i < studentNames.length; i++) {#}
+        {#    let row = document.createElement("tr");#}
+        {#    let name = document.createElement("td");#}
+        {#    let c2 = document.createElement("td");#}
+        {#    let c3 = document.createElement("td");#}
+        {#    let c4 = document.createElement("td");#}
+        {#    let c5 = document.createElement("td");#}
+        {#    let c6 = document.createElement("td");#}
+        {#    let c7 = document.createElement("td");#}
+        {##}
+        {#    let nameCell = name.innerText(studentNames[i]);#}
+        {#    let appendedRow = row.append(nameCell);#}
+        {#    let table = document.getElementById("tableData");#}
+        {#    table.appendChild(appendedRow);#}
+        {##}
+        {##}
+
+
+
+        {#var name = document.getElementById("name");#}
+        {#var surah = document.getElementById("surah");#}
+        {#var ayahStart = document.getElementById("ayah-start");#}
+        {#var ayahEnd = document.getElementById("ayah-end");#}
+        {#var type = document.getElementById("type");#}
+        {#var mistakes = document.getElementById("mistakes");#}
+        {#var stuck = document.getElementById("stuck");#}
+        {#var table = document.getElementById("tableData");#}
+        {#var rowCount = table.rows.length;#}
+        {#var row = table.insertRow(rowCount);#}
+        {#row.insertCell(0).innerHTML = name.value;#}
+        {#row.insertCell(1).innerHTML = surah.value;#}
+        {#row.insertCell(2).innerHTML = ayahStart.value;#}
+        {#row.insertCell(3).innerHTML = ayahEnd.value;#}
+        {#row.insertCell(4).innerHTML = type.value;#}
+        {#row.insertCell(5).innerHTML = mistakes.value;#}
+        {#row.insertCell(6).innerHTML = stuck.value;#}
+    }
+
+
+</script>
 
 </body>
 </html>
