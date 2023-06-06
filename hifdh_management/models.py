@@ -8,7 +8,7 @@ class Hifdh_Table(models.Model):
 
     teacher_name_choices = [('Israr', 'Israr'), ('Qari Abdul Azeem', 'Qari Abdul Azeem')]
 
-    name = models.CharField(max_length=500)
+    student_names = models.ForeignKey('Student_Names', on_delete=models.CASCADE)
     surah = models.CharField(max_length=500)
     ayah_start = models.IntegerField()
     ayah_end = models.IntegerField()
@@ -17,3 +17,9 @@ class Hifdh_Table(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     teacher = models.CharField(max_length=500, choices=teacher_name_choices, default='Qari Abdul Azeem')
+
+
+class Student_Names(models.Model):
+
+    name = models.CharField(max_length=500)
+    gender = models.CharField(max_length=500)

@@ -42,28 +42,7 @@
             display: none;
             padding: 6px 12px;
             border: 1px solid #ccc;
-            -webkit-animation: fadeEffect 2s;
-            animation: fadeEffect 2s;
-
-        }
-
-        /* Fade in tabs */
-        @-webkit-keyframes fadeEffect {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeEffect {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            border-top: none;
         }
 
         #tableData {
@@ -92,31 +71,51 @@
             background-color: #04AA6D;
             color: white;
         }
-
-        .tablinks {
-            text-align: center;
-        }
     </style>
 </head>
 <body>
 
+{#<div id="myform">#}
+{#    <h4>Fill the below form:</h4>#}
+{#    <label>Name:</label>#}
+{#    <input type="text" id="name"><br><br>#}
+{#    <label>Surah:</label>#}
+{#    <input type="text" id="surah"><br><br>#}
+{#    <label>Ayah Start:</label>#}
+{#    <input type="number" id="ayah-start"><br><br>#}
+{#    <label>Ayah End:</label>#}
+{#    <input type="number" id="ayah-end"><br><br>#}
+{#    <label>Type:</label>#}
+{#    <input type="text" id="type"><br><br>#}
+{#    <label>Mistakes:</label>#}
+{#    <input type="number" id="mistakes"><br><br>#}
+{#    <label>Stuck:</label>#}
+{#    <input type="number" id="stuck"><br><br>#}
+{#    <button id="add" value="Add" onclick="addTableRow()">Add Data to Table</button>#}
+{#</div>#}
+
 <div>
-    <h4 style="text-align: center">Student Record</h4>
+    <h4>Student Record</h4>
 
     <div class="tab">
-        <button class="tablinks active" onclick="hifdhType(event, 'Sabaq')">Sabaq</button>
-        <button class="tablinks" onclick="hifdhType(event, 'Sabaq-Para')">Sabaq-Para</button>
-        <button class="tablinks" onclick="hifdhType(event, 'Daur')">Daur</button>
+        <button class="tablinks" onclick="openCity(event, 'Sabaq')">Sabaq</button>
+        <button class="tablinks" onclick="openCity(event, 'Sabaq-Para')">Sabaq-Para</button>
+        <button class="tablinks" onclick="openCity(event, 'Daur')">Daur</button>
     </div>
 
-    <div id="Sabaq" class="tabcontent" style="display:block">
-
+    <div id="Sabaq" class="tabcontent">
+        <h3>Sabaq</h3>
+        <p>London is the capital city of England.</p>
     </div>
 
     <div id="Sabaq-Para" class="tabcontent">
+        <h3>Sabaq-Para</h3>
+        <p>Paris is the capital of France.</p>
     </div>
 
     <div id="Daur" class="tabcontent">
+        <h3>Daur</h3>
+        <p>Tokyo is the capital of Japan.</p>
     </div>
 
     <table id="tableData" style="border:solid; cellpadding:2">
@@ -135,14 +134,8 @@
 <script>
 
     window.onload = function () {
-    }
-
-    function tableGenerator() {
-
 
         let studentNames = ['Aaraiz Khan', 'Abdul Aziz', 'Abdullah Tariq', 'Adeel Siddiqui', 'Ali Awsaf Tayeeb', 'Anas Malik', 'Anas Sher', 'Ayesha Mukry', 'Muhammad Mukry', 'Mustafa Mukry', 'Shahwaiz Khan', 'Syed Muhammad Affan Karim', 'Syed Muhammad Hassan Karim', 'Umair Asif'];
-
-        let studentNames2 = ['Abdul Muheet Sabzwari', 'Ahmed Amin', 'Ahyan Mohammad', 'Ali Hasan Harith', 'Ayan Aftab', 'Ayan Jalal', 'Ibrahim Kareem', 'Maaz Khan', 'Mohammad Omar Mirza', 'Musab Khan', 'Rayyan Adil Siddiqui', 'Usman Behaqi', 'Yahya Kareem', 'Zaid Farid', 'Zara Adil Siddiqui'];
 
         let surahNames = ['1- الفاتحة', '2- البقرة', '3- آل عمران', '4- النساء', '5- المائدة', '6- الأنعام', '7- الأعراف', '8- الأنفال', '9- التوبة', '10- يونس', '11- هود', '12- يوسف', '13- الرعد', '14- إبراهيم', '15- الحجر', '16- النحل', '17- الإسراء', '18- الكهف', '19- مريم', '20- طه', '21- الأنبياء', '22- الحج', '23- المؤمنون', '24- النور', '25- الفرقان', '26- الشعراء', '27- النمل', '28- القصص', '29- العنكبوت', '30- الروم', '31- لقمان', '32- السجدة', '33- الأحزاب', '34- سبأ', '35- فاطر', '36- يس', '37- الصافات', '38- ص', '39- الزمر', '40- غافر', '41- فصلت', '42- الشورى', '43- الزخرف', '44- الدخان', '45- الجاثية', '46- الأحقاف', '47- محمد', '48- الفتح', '49- الحجرات', '50- ق', '51- الذاريات', '52- الطور', '53- النجم', '54- القمر', '55- الرحمن', '56- الواقعة', '57- الحديد', '58- المجادلة', '59- الحشر', '60- الممتحنة', '61- الصف', '62- الجمعة', '63- المنافقون', '64- التغابن', '65- الطلاق', '66- التحريم', '67- الملك', '68- القلم', '69- الحاقة', '70- المعارج', '71- نوح', '72- الجن', '73- المزمل', '74- المدثر', '75- القيامة', '76- الإنسان', '77- المرسلات', '78- النبأ', '79- النازعات', '80- عبس', '81- التكوير', '82- الإنفطار', '83- المطففين', '84- الانشقاق', '85- البروج', '86- الطارق', '87- الأعلى', '88- الغاشية', '89- الفجر', '90- البلد', '91- الشمس', '92- الليل', '93- الضحى', '94- الشرح', '95- التين', '96- العلق', '97- القدر', '98- البينة', '99- الزلزلة', '100- العاديات', '101- القارعة', '102- التكاثر', '103- العصر', '104- الهمزة', '105- الفيل', '106- قريش', '107- الماعون', '108- الكوثر', '109- الكافرون', '110- النصر', '111- المسد', '112- الإخلاص', '113- الفلق', '114- الناس'
         ];
@@ -192,6 +185,11 @@
             typeCell.appendChild(selectTag2);
 
 
+            // let typeInput = document.createElement("input");
+            // typeInput.type = "text";
+            // typeInput.name = "type";
+            // typeCell.appendChild(typeInput);
+
             let mistakeInput = document.createElement("input");
             mistakeInput.type = "number";
             mistakeInput.name = "mistake";
@@ -202,6 +200,14 @@
             stuckInput.name = "ayahStart";
             stuckCell.appendChild(stuckInput);
 
+
+            {##}
+            {#for (surah in surahNames) {#}
+            {#    let option = document.createElement("option");#}
+            {##}
+            {#    let surahCell = row.insertCell(1).innerText(surah);#}
+            {##}
+
             // Add additional cells if needed and set their values
 
             // For example:
@@ -209,13 +215,47 @@
             // surahCell.innerText = "Some Surah";
         }
 
+        {#for (let i = 0; i < studentNames.length; i++) {#}
+        {#    let row = document.createElement("tr");#}
+        {#    let name = document.createElement("td");#}
+        {#    let c2 = document.createElement("td");#}
+        {#    let c3 = document.createElement("td");#}
+        {#    let c4 = document.createElement("td");#}
+        {#    let c5 = document.createElement("td");#}
+        {#    let c6 = document.createElement("td");#}
+        {#    let c7 = document.createElement("td");#}
+        {##}
+        {#    let nameCell = name.innerText(studentNames[i]);#}
+        {#    let appendedRow = row.append(nameCell);#}
+        {#    let table = document.getElementById("tableData");#}
+        {#    table.appendChild(appendedRow);#}
+        {##}
+        {##}
+
+
+
+        {#var name = document.getElementById("name");#}
+        {#var surah = document.getElementById("surah");#}
+        {#var ayahStart = document.getElementById("ayah-start");#}
+        {#var ayahEnd = document.getElementById("ayah-end");#}
+        {#var type = document.getElementById("type");#}
+        {#var mistakes = document.getElementById("mistakes");#}
+        {#var stuck = document.getElementById("stuck");#}
+        {#var table = document.getElementById("tableData");#}
+        {#var rowCount = table.rows.length;#}
+        {#var row = table.insertRow(rowCount);#}
+        {#row.insertCell(0).innerHTML = name.value;#}
+        {#row.insertCell(1).innerHTML = surah.value;#}
+        {#row.insertCell(2).innerHTML = ayahStart.value;#}
+        {#row.insertCell(3).innerHTML = ayahEnd.value;#}
+        {#row.insertCell(4).innerHTML = type.value;#}
+        {#row.insertCell(5).innerHTML = mistakes.value;#}
+        {#row.insertCell(6).innerHTML = stuck.value;#}
     }
 
-
-    function hifdhType(evt, type) {
+    function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
-        tabcontent.forEach(button => button.addEventListener('click', tableGenerator()));
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
@@ -223,9 +263,8 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(type).style.display = "block";
+        document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " active";
-
     }
 
 </script>
