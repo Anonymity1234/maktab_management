@@ -13,6 +13,7 @@
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
+
         }
 
         /* Style the buttons inside the tab */
@@ -42,8 +43,8 @@
             display: none;
             padding: 6px 12px;
             border: 1px solid #ccc;
-            -webkit-animation: fadeEffect 2s;
-            animation: fadeEffect 2s;
+            -webkit-animation: fadeEffect 4s;
+            animation: fadeEffect 4s;
 
         }
 
@@ -66,26 +67,26 @@
             }
         }
 
-        #tableData {
+        .tableData {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
 
-        #tableData td, #tableData th {
+        .tableData td, .tableData th {
             border: 1px solid #ddd;
             padding: 8px;
         }
 
-        #tableData tr:nth-child(even) {
+        .tableData tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        #tableData tr:hover {
+        .tableData tr:hover {
             background-color: #ddd;
         }
 
-        #tableData th {
+        .tableData th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -104,41 +105,79 @@
     <h4 style="text-align: center">Student Record</h4>
 
     <div class="tab">
-        <button class="tablinks active" onclick="hifdhType(event, 'Sabaq')">Sabaq</button>
+        <button class="tablinks" onclick="hifdhType(event, 'Sabaq')">Sabaq</button>
         <button class="tablinks" onclick="hifdhType(event, 'Sabaq-Para')">Sabaq-Para</button>
         <button class="tablinks" onclick="hifdhType(event, 'Daur')">Daur</button>
     </div>
 
-    <div id="Sabaq" class="tabcontent" style="display:block">
-
+    <div id="Sabaq" class="tabcontent">
+        <table id="tableData0" class="tableData" style="border:solid; cellpadding:2">
+            <tr>
+                <td><b>Student Name</b></td>
+                <td><b>Surah</b></td>
+                <td><b>Ayah Start</b></td>
+                <td><b>Ayah End</b></td>
+                <td><b>Type</b></td>
+                <td><b>Mistakes</b></td>
+                <td><b>Stuck</b></td>
+            </tr>
+        </table>
     </div>
 
     <div id="Sabaq-Para" class="tabcontent">
+        <table id="tableData1" class="tableData" style="border:solid; cellpadding:2">
+            <tr>
+                <td><b>Student Name</b></td>
+                <td><b>Surah</b></td>
+                <td><b>Ayah Start</b></td>
+                <td><b>Ayah End</b></td>
+                <td><b>Type</b></td>
+                <td><b>Mistakes</b></td>
+                <td><b>Stuck</b></td>
+            </tr>
+        </table>
     </div>
 
     <div id="Daur" class="tabcontent">
+        <table id="tableData2" class="tableData" style="border:solid; cellpadding:2">
+            <tr>
+                <td><b>Student Name</b></td>
+                <td><b>Surah</b></td>
+                <td><b>Ayah Start</b></td>
+                <td><b>Ayah End</b></td>
+                <td><b>Type</b></td>
+                <td><b>Mistakes</b></td>
+                <td><b>Stuck</b></td>
+            </tr>
+        </table>
     </div>
 
-    <table id="tableData" style="border:solid; cellpadding:2">
-        <tr>
-            <td><b>Student Name</b></td>
-            <td><b>Surah</b></td>
-            <td><b>Ayah Start</b></td>
-            <td><b>Ayah End</b></td>
-            <td><b>Type</b></td>
-            <td><b>Mistakes</b></td>
-            <td><b>Stuck</b></td>
-        </tr>
-    </table>
+
 </div>
 
 <script>
 
-    window.onload = function () {
-    }
+    let generatedTables = {
+        'Sabaq': false,
+        'Sabaq-Para': false,
+        'Daur': false
+    };
 
-    function tableGenerator() {
+    function tableGenerator(type1) {
 
+        if (generatedTables[type1]) {
+            return;
+        }
+
+        let table;
+        if (type1 === 'Sabaq') {
+            table = document.getElementById("tableData0");
+
+        } else if (type1 === 'Sabaq-Para') {
+            table = document.getElementById("tableData1");
+        } else if (type1 === 'Daur') {
+            table = document.getElementById("tableData2");
+        }
 
         let studentNames = ['Aaraiz Khan', 'Abdul Aziz', 'Abdullah Tariq', 'Adeel Siddiqui', 'Ali Awsaf Tayeeb', 'Anas Malik', 'Anas Sher', 'Ayesha Mukry', 'Muhammad Mukry', 'Mustafa Mukry', 'Shahwaiz Khan', 'Syed Muhammad Affan Karim', 'Syed Muhammad Hassan Karim', 'Umair Asif'];
 
@@ -147,8 +186,8 @@
         let surahNames = ['1- الفاتحة', '2- البقرة', '3- آل عمران', '4- النساء', '5- المائدة', '6- الأنعام', '7- الأعراف', '8- الأنفال', '9- التوبة', '10- يونس', '11- هود', '12- يوسف', '13- الرعد', '14- إبراهيم', '15- الحجر', '16- النحل', '17- الإسراء', '18- الكهف', '19- مريم', '20- طه', '21- الأنبياء', '22- الحج', '23- المؤمنون', '24- النور', '25- الفرقان', '26- الشعراء', '27- النمل', '28- القصص', '29- العنكبوت', '30- الروم', '31- لقمان', '32- السجدة', '33- الأحزاب', '34- سبأ', '35- فاطر', '36- يس', '37- الصافات', '38- ص', '39- الزمر', '40- غافر', '41- فصلت', '42- الشورى', '43- الزخرف', '44- الدخان', '45- الجاثية', '46- الأحقاف', '47- محمد', '48- الفتح', '49- الحجرات', '50- ق', '51- الذاريات', '52- الطور', '53- النجم', '54- القمر', '55- الرحمن', '56- الواقعة', '57- الحديد', '58- المجادلة', '59- الحشر', '60- الممتحنة', '61- الصف', '62- الجمعة', '63- المنافقون', '64- التغابن', '65- الطلاق', '66- التحريم', '67- الملك', '68- القلم', '69- الحاقة', '70- المعارج', '71- نوح', '72- الجن', '73- المزمل', '74- المدثر', '75- القيامة', '76- الإنسان', '77- المرسلات', '78- النبأ', '79- النازعات', '80- عبس', '81- التكوير', '82- الإنفطار', '83- المطففين', '84- الانشقاق', '85- البروج', '86- الطارق', '87- الأعلى', '88- الغاشية', '89- الفجر', '90- البلد', '91- الشمس', '92- الليل', '93- الضحى', '94- الشرح', '95- التين', '96- العلق', '97- القدر', '98- البينة', '99- الزلزلة', '100- العاديات', '101- القارعة', '102- التكاثر', '103- العصر', '104- الهمزة', '105- الفيل', '106- قريش', '107- الماعون', '108- الكوثر', '109- الكافرون', '110- النصر', '111- المسد', '112- الإخلاص', '113- الفلق', '114- الناس'
         ];
 
+
         for (let i = 0; i < studentNames.length; i++) {
-            let table = document.getElementById("tableData");
             let row = table.insertRow();
             let nameCell = row.insertCell(0);
             let surahCell = row.insertCell(1)
@@ -183,6 +222,7 @@
 
             let types = ['Sabaq', 'Sabaq-Para', 'Daur'];
             let selectTag2 = document.createElement('select');
+            selectTag2.setAttribute('id', 'mySelect');
             types.map((type, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -190,6 +230,20 @@
                 selectTag2.append(opt);
             });
             typeCell.appendChild(selectTag2);
+
+            if (type1 === 'Sabaq') {
+                selectTag2.selectedIndex = 0;
+                selectTag2.options[1].disabled = true;
+                selectTag2.options[2].disabled = true;
+            } else if (type1 === 'Sabaq-Para') {
+                selectTag2.selectedIndex = 1;
+                selectTag2.options[0].disabled = true;
+                selectTag2.options[2].disabled = true;
+            } else if (type1 === 'Daur') {
+                selectTag2.selectedIndex = 2
+                selectTag2.options[0].disabled = true;
+                selectTag2.options[1].disabled = true;
+            };
 
 
             let mistakeInput = document.createElement("input");
@@ -209,24 +263,82 @@
             // surahCell.innerText = "Some Surah";
         }
 
+        generatedTables[type1] = true;
     }
 
-
-    function hifdhType(evt, type) {
+    function hifdhType(evt, type1) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
-        tabcontent.forEach(button => button.addEventListener('click', tableGenerator()));
+
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
+
         }
+
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
+
         }
-        document.getElementById(type).style.display = "block";
+
+        {% comment %}if (!evt.currentTarget.className.includes("active")) {
+
+            evt.currentTarget.addEventListener('click', tableGenerator(type)); // this works but it duplicates the table
+        }{% endcomment %}
+
+        document.getElementById(type1).style.display = "block";
         evt.currentTarget.className += " active";
 
+        tableGenerator(type1);
+        // tabcontent.innerHTML = tableGenerator(type); // this works as well though it duplicates the table
+
     }
+
+
+    // tabcontent.forEach(button => button.addEventListener('click', tableGenerator));
+    // tabconent.innerHTML = tableGenerator();
+    // document.getElementById("tableData").innerHTML = tableGenerator();
+
+
+    // how to insert the tableGenerator function here?
+
+    // q: how to insert the tableGenerator function here?
+    // a: you can't. you need to call it from the onclick event of the button
+    // q: how to call it from the onclick event of the button?
+    // a: you need to add an event listener to the button
+    // q: how to add an event listener to the button?
+    // a: you need to get the button element and then call addEventListener on it
+    // q: how to get the button element?
+    // a: you can use document.getElementById('buttonId') or document.querySelector('#buttonId') or document.querySelector('.buttonClass')
+
+    // q: but which button are you talking about?
+    // a: the button that was clicked. you can get it from the event object that is passed to the function
+    // q: where is that button in this code?
+    // a: it's the evt.currentTarget
+
+    // q: how to get the evt.currentTarget?
+    // a: it's the first argument passed to the function
+    // q: how to get the first argument passed to the function?
+    // a: you can use the name of the argument, in this case evt
+    // q: how to get the name of the argument?
+    // a: you don't need to get the name of the argument, you just need to use it in the function
+
+    // q: give me an example of that code
+    // a: evt.currentTarget.addEventListener('click', tableGenerator)
+
+    // q: and where should I put this evt.currentTarget.addEventListener('click', tableGenerator) code?
+    // a: you can put it anywhere in the function, but it's better to put it at the end of the function
+    // q: where at the end of the function?
+    // a: after the for loop
+    // q: which for loop? there are two for loops in this function
+    // a: the first one
+    // q: why the first one?
+    // a: because the second one is inside the first one, so it will be executed multiple times
+    // q: but you are wrong though, the second for loop is not inside the first one
+    // a: yes it is, look at the code again
+    // q: I looked at the code again and I am 100% sure it is not inside the first loop!
+    // a: you are right, it's not inside the first loop, but it's inside the function, so it will be executed multiple times
+
 
 </script>
 
