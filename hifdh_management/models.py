@@ -8,7 +8,7 @@ class Hifdh_Table(models.Model):
 
     teacher_name_choices = [('Israr', 'Israr'), ('Qari Abdul Azeem', 'Qari Abdul Azeem')]
 
-    student_names = models.ForeignKey('Student_Names', on_delete=models.CASCADE)
+    student_names = models.ForeignKey('Student_Names', default='' , on_delete=models.CASCADE)
     surah = models.CharField(max_length=500)
     ayah_start = models.IntegerField()
     ayah_end = models.IntegerField()

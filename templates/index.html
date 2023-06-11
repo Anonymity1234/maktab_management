@@ -11,7 +11,7 @@
         /* Style the tab */
         .tab {
             overflow: hidden;
-            border: 1px solid #ccc;
+            border: 1px #ccc;
             background-color: #f1f1f1;
 
         }
@@ -42,7 +42,7 @@
         .tabcontent {
             display: none;
             padding: 6px 12px;
-            border: 1px solid #ccc;
+            border: 1px #ccc;
             -webkit-animation: fadeEffect 4s;
             animation: fadeEffect 4s;
 
@@ -74,7 +74,7 @@
         }
 
         .tableData td, .tableData th {
-            border: 1px solid #ddd;
+            border: 1px #ddd;
             padding: 8px;
         }
 
@@ -97,6 +97,68 @@
         .tablinks {
             text-align: center;
         }
+
+        /* Button style */
+        .button-56 {
+            align-items: center;
+            background-color: #fee6e3;
+            border: 2px solid #111;
+            border-radius: 8px;
+            box-sizing: border-box;
+            color: #111;
+            cursor: pointer;
+            display: flex;
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            height: 48px;
+            justify-content: center;
+            line-height: 24px;
+            max-width: 100%;
+            padding: 0 25px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+        }
+
+        .button-56:after {
+            background-color: #111;
+            border-radius: 8px;
+            content: "";
+            display: block;
+            height: 48px;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            top: -2px;
+            transform: translate(8px, 8px);
+            transition: transform .2s ease-out;
+            z-index: -1;
+        }
+
+        .button-56:hover:after {
+            transform: translate(0, 0);
+        }
+
+        .button-56:active {
+            background-color: #ffdeda;
+            outline: 0;
+        }
+
+        .button-56:hover {
+            outline: 0;
+        }
+
+        @media (min-width: 768px) {
+            .button-56 {
+                padding: 0 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -111,45 +173,58 @@
     </div>
 
     <div id="Sabaq" class="tabcontent">
-        <table id="tableData0" class="tableData" style="border:solid; cellpadding:2">
-            <tr>
-                <td><b>Student Name</b></td>
-                <td><b>Surah</b></td>
-                <td><b>Ayah Start</b></td>
-                <td><b>Ayah End</b></td>
-                <td><b>Type</b></td>
-                <td><b>Mistakes</b></td>
-                <td><b>Stuck</b></td>
-            </tr>
-        </table>
+        <form action="#" method="post" class="submission-form">
+            {% csrf_token %}
+            <table id="tableData0" class="tableData" style="cellpadding:2">
+                <tr>
+                    <td><b>Student Name</b></td>
+                    <td><b>Surah</b></td>
+                    <td><b>Ayah Start</b></td>
+                    <td><b>Ayah End</b></td>
+                    <td><b>Type</b></td>
+                    <td><b>Mistakes</b></td>
+                    <td><b>Stuck</b></td>
+                </tr>
+            </table>
+            <button class="button-56" type="submit">Submit</button>
+        </form>
     </div>
 
+
     <div id="Sabaq-Para" class="tabcontent">
-        <table id="tableData1" class="tableData" style="border:solid; cellpadding:2">
-            <tr>
-                <td><b>Student Name</b></td>
-                <td><b>Surah</b></td>
-                <td><b>Ayah Start</b></td>
-                <td><b>Ayah End</b></td>
-                <td><b>Type</b></td>
-                <td><b>Mistakes</b></td>
-                <td><b>Stuck</b></td>
-            </tr>
-        </table>
+        <form action="" method="post" class="submission-form">
+            {% csrf_token %}
+            <table id="tableData1" class="tableData" style="cellpadding:2">
+                <tr>
+                    <td><b>Student Name</b></td>
+                    <td><b>Surah</b></td>
+                    <td><b>Ayah Start</b></td>
+                    <td><b>Ayah End</b></td>
+                    <td><b>Type</b></td>
+                    <td><b>Mistakes</b></td>
+                    <td><b>Stuck</b></td>
+                </tr>
+            </table>
+            <button class="button-56" type="submit">Submit</button>
+        </form>
     </div>
 
     <div id="Daur" class="tabcontent">
-        <table id="tableData2" class="tableData" style="border:solid; cellpadding:2">
-            <tr>
-                <td><b>Student Name</b></td>
-                <td><b>Surah</b></td>
-                <td><b>Ayah Start</b></td>
-                <td><b>Ayah End</b></td>
-                <td><b>Type</b></td>
-                <td><b>Mistakes</b></td>
-                <td><b>Stuck</b></td>
-            </tr>
-        </table>
+        <form action="#" method="post" class="submission-form">
+            {% csrf_token %}
+            <table id="tableData2" class="tableData" style="cellpadding:2">
+                <tr>
+                    <td><b>Student Name</b></td>
+                    <td><b>Surah</b></td>
+                    <td><b>Ayah Start</b></td>
+                    <td><b>Ayah End</b></td>
+                    <td><b>Type</b></td>
+                    <td><b>Mistakes</b></td>
+                    <td><b>Stuck</b></td>
+                </tr>
+            </table>
+            <button class="button-56" type="submit">Submit</button>
+        </form>
     </div>
 
 
@@ -243,7 +318,8 @@
                 selectTag2.selectedIndex = 2
                 selectTag2.options[0].disabled = true;
                 selectTag2.options[1].disabled = true;
-            };
+            }
+            ;
 
 
             let mistakeInput = document.createElement("input");

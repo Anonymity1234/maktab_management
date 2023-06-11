@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 
 from hifdh_management.models import Hifdh_Table
 
@@ -16,7 +16,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.mixins import AccessMixin
 
-class HifdhTableView(ListView):
+class HifdhTableView(TemplateView):
     model = Hifdh_Table
     template_name = 'index.html'
     # login_url = 'login'
@@ -24,5 +24,11 @@ class HifdhTableView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hifdh_table'] = Hifdh_Table.objects.all()
+        context['request'] = self.request
         return context
+
+    def post(self, request):
+        print(request.POST)
+        form = request.POST
+        print(form)
+        return render(request, 'index.html', {})
