@@ -30,5 +30,6 @@ class HifdhTableView(TemplateView):
     def post(self, request):
         print(request.POST)
         form = request.POST
-        print(form)
+        surah = form.get('surah')
+        print(surah)
         return render(request, 'index.html', {})

@@ -173,7 +173,7 @@
     </div>
 
     <div id="Sabaq" class="tabcontent">
-        <form action="#" method="post" class="submission-form">
+        <form action="#" method="post" id="submission-form1">
             {% csrf_token %}
             <table id="tableData0" class="tableData" style="cellpadding:2">
                 <tr>
@@ -192,7 +192,7 @@
 
 
     <div id="Sabaq-Para" class="tabcontent">
-        <form action="" method="post" class="submission-form">
+        <form action="" method="post" id="submission-form2">
             {% csrf_token %}
             <table id="tableData1" class="tableData" style="cellpadding:2">
                 <tr>
@@ -210,7 +210,7 @@
     </div>
 
     <div id="Daur" class="tabcontent">
-        <form action="#" method="post" class="submission-form">
+        <form action="#" method="post" id="submission-form3">
             {% csrf_token %}
             <table id="tableData2" class="tableData" style="cellpadding:2">
                 <tr>
@@ -223,7 +223,7 @@
                     <td><b>Stuck</b></td>
                 </tr>
             </table>
-            <button class="button-56" type="submit">Submit</button>
+            <button id="form1-button" class="button-56" type="submit">Submit</button>
         </form>
     </div>
 
@@ -265,11 +265,27 @@
         for (let i = 0; i < studentNames.length; i++) {
             let row = table.insertRow();
             let nameCell = row.insertCell(0);
-            let surahCell = row.insertCell(1)
+            let surahCell = row.insertCell(1);
 
-            nameCell.innerText = studentNames[i];
+            // Create a hidden input field for the student's name
+            let nameInput = document.createElement("input");
+            nameInput.type = "hidden";
+            nameInput.name = "student_name";
+            nameInput.value = studentNames[i];
+
+            // Append the hidden input field to the form
+            nameCell.appendChild(nameInput);
+
+            // Set the innerText of the table cell to the student's name
+            //nameCell.innerText = studentNames[i];
+
+            // Create a span element to hold the student's name
+            let nameSpan = document.createElement("span");
+            nameSpan.innerText = studentNames[i];
+            nameCell.appendChild(nameSpan);
 
             let selectTag = document.createElement('select');
+            selectTag.setAttribute('name', 'surah')
             surahNames.map((surah, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -298,6 +314,8 @@
             let types = ['Sabaq', 'Sabaq-Para', 'Daur'];
             let selectTag2 = document.createElement('select');
             selectTag2.setAttribute('id', 'mySelect');
+            selectTag2.setAttribute('name', 'type');
+
             types.map((type, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -305,6 +323,7 @@
                 selectTag2.append(opt);
             });
             typeCell.appendChild(selectTag2);
+
 
             if (type1 === 'Sabaq') {
                 selectTag2.selectedIndex = 0;
@@ -329,7 +348,7 @@
 
             let stuckInput = document.createElement("input");
             stuckInput.type = "number";
-            stuckInput.name = "ayahStart";
+            stuckInput.name = "stuck";
             stuckCell.appendChild(stuckInput);
 
             // Add additional cells if needed and set their values
@@ -415,6 +434,60 @@
     // q: I looked at the code again and I am 100% sure it is not inside the first loop!
     // a: you are right, it's not inside the first loop, but it's inside the function, so it will be executed multiple times
 
+
+    // Function to handle form submission
+    function submitForm(event) {
+        event.preventDefault(); // Prevent page reload
+
+        if (event.target === form1) {
+            var form = form1;
+        } else if (event.target === form2) {
+            var form = form2;
+        } else {
+            var form = form3;
+        }
+
+        var formData = new FormData(form);
+
+        console.log(document.getElementById("submission-form1"));
+        console.log(document.forms["submission-form1"].elements[1]);
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://127.0.0.1:8000');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Request succeeded
+                    console.log(xhr.responseText);
+                } else {
+                    // Request failed
+                    console.error('Error: ' + xhr.status);
+                }
+            }
+        };
+        xhr.send(formData);
+    }
+
+    // Add event listener to the form submit event
+
+
+    var form1 = document.getElementById('submission-form1');
+    var form2 = document.getElementById('submission-form2');
+    var form3 = document.getElementById('submission-form3');
+
+    form1.addEventListener('submit', submitForm); //Modern browsers
+    form2.addEventListener('submit', submitForm); //Modern browsers
+    form3.addEventListener('submit', submitForm); //Modern browsers
+
+    // q: how to get an element of the form like an element of the form1, I am specifically looking for getting the value of type and submitting that in the form as well, because as of now the form submitted doesn't have that field?
+    // a: you can use document.getElementById('typeId') or document.querySelector('#typeId') or document.querySelector('.typeClass')
+    // q: how do I use that?
+    // a: you can use it in the submitForm function
+    // q: how to use it in the submitForm function?
+    // a: you can get the value of the type field and then add it to the formData
+    // q: how to get the value of the type field?
+    // a: you can use document.getElementById('typeId').value or document.querySelector('#typeId').value or document.querySelector('.typeClass').value
 
 </script>
 
