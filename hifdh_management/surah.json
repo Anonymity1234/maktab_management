@@ -64,6 +64,23 @@
     "nAyah": 176,
     "revelationOrder": 92,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 4,
+        "start": 1,
+        "end": 23
+      },
+      {
+        "number": 5,
+        "start": 24,
+        "end": 147
+      },
+      {
+        "number": 6,
+        "start": 148,
+        "end": 176
+      }
+    ],
     "start": 494,
     "end": 669
   },
@@ -72,6 +89,18 @@
     "nAyah": 120,
     "revelationOrder": 112,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 6,
+        "start": 1,
+        "end": 82
+      },
+      {
+        "number": 7,
+        "start": 83,
+        "end": 120
+      }
+    ],
     "start": 670,
     "end": 789
   },
@@ -80,6 +109,18 @@
     "nAyah": 165,
     "revelationOrder": 55,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 7,
+        "start": 1,
+        "end": 110
+      },
+      {
+        "number": 8,
+        "start": 111,
+        "end": 165
+      }
+    ],
     "start": 790,
     "end": 954
   },
@@ -88,6 +129,18 @@
     "nAyah": 206,
     "revelationOrder": 39,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 8,
+        "start": 1,
+        "end": 87
+      },
+      {
+        "number": 9,
+        "start": 88,
+        "end": 206
+      }
+    ],
     "start": 955,
     "end": 1160
   },
@@ -96,6 +149,18 @@
     "nAyah": 75,
     "revelationOrder": 88,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 9,
+        "start": 1,
+        "end": 40
+      },
+      {
+        "number": 10,
+        "start": 41,
+        "end": 75
+      }
+    ],
     "start": 1161,
     "end": 1235
   },
@@ -104,6 +169,18 @@
     "nAyah": 129,
     "revelationOrder": 113,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 10,
+        "start": 1,
+        "end": 93
+      },
+      {
+        "number": 11,
+        "start": 94,
+        "end": 129
+      }
+    ],
     "start": 1236,
     "end": 1364
   },
@@ -112,6 +189,13 @@
     "nAyah": 109,
     "revelationOrder": 51,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 11,
+        "start": 1,
+        "end": 109
+      }
+    ],
     "start": 1365,
     "end": 1473
   },
@@ -120,6 +204,18 @@
     "nAyah": 123,
     "revelationOrder": 52,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 11,
+        "start": 1,
+        "end": 5
+      },
+      {
+        "number": 12,
+        "start": 6,
+        "end": 123
+      }
+    ],
     "start": 1474,
     "end": 1596
   },
@@ -128,6 +224,18 @@
     "nAyah": 111,
     "revelationOrder": 53,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 12,
+        "start": 1,
+        "end": 52
+      },
+      {
+        "number": 13,
+        "start": 53,
+        "end": 111
+      }
+    ],
     "start": 1597,
     "end": 1707
   },
@@ -136,6 +244,13 @@
     "nAyah": 43,
     "revelationOrder": 96,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 13,
+        "start": 1,
+        "end": 43
+      }
+    ],
     "start": 1708,
     "end": 1750
   },
@@ -144,6 +259,13 @@
     "nAyah": 52,
     "revelationOrder": 72,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 13,
+        "start": 1,
+        "end": 52
+      }
+    ],
     "start": 1751,
     "end": 1802
   },
@@ -152,6 +274,18 @@
     "nAyah": 99,
     "revelationOrder": 54,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 13,
+        "start": 1,
+        "end": 1
+      },
+      {
+        "number": 14,
+        "start": 2,
+        "end": 99
+      }
+    ],
     "start": 1803,
     "end": 1901
   },
@@ -160,6 +294,13 @@
     "nAyah": 128,
     "revelationOrder": 70,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 14,
+        "start": 1,
+        "end": 128
+      }
+    ],
     "start": 1902,
     "end": 2029
   },
@@ -168,6 +309,13 @@
     "nAyah": 111,
     "revelationOrder": 50,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 15,
+        "start": 1,
+        "end": 111
+      }
+    ],
     "start": 2030,
     "end": 2140
   },
@@ -176,6 +324,18 @@
     "nAyah": 110,
     "revelationOrder": 69,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 15,
+        "start": 1,
+        "end": 74
+      },
+      {
+        "number": 16,
+        "start": 75,
+        "end": 110
+      }
+    ],
     "start": 2141,
     "end": 2250
   },
@@ -184,6 +344,13 @@
     "nAyah": 98,
     "revelationOrder": 44,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 16,
+        "start": 1,
+        "end": 98
+      }
+    ],
     "start": 2251,
     "end": 2348
   },
@@ -192,6 +359,13 @@
     "nAyah": 135,
     "revelationOrder": 45,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 16,
+        "start": 1,
+        "end": 135
+      }
+    ],
     "start": 2349,
     "end": 2483
   },
@@ -200,6 +374,13 @@
     "nAyah": 112,
     "revelationOrder": 73,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 17,
+        "start": 1,
+        "end": 112
+      }
+    ],
     "start": 2484,
     "end": 2595
   },
@@ -208,6 +389,13 @@
     "nAyah": 78,
     "revelationOrder": 103,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 17,
+        "start": 1,
+        "end": 78
+      }
+    ],
     "start": 2596,
     "end": 2673
   },
@@ -216,6 +404,13 @@
     "nAyah": 118,
     "revelationOrder": 74,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 18,
+        "start": 1,
+        "end": 118
+      }
+    ],
     "start": 2674,
     "end": 2791
   },
@@ -224,6 +419,13 @@
     "nAyah": 64,
     "revelationOrder": 102,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 18,
+        "start": 1,
+        "end": 64
+      }
+    ],
     "start": 2792,
     "end": 2855
   },
@@ -232,6 +434,18 @@
     "nAyah": 77,
     "revelationOrder": 42,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 18,
+        "start": 1,
+        "end": 20
+      },
+      {
+        "number": 19,
+        "start": 21,
+        "end": 77
+      }
+    ],
     "start": 2856,
     "end": 2932
   },
@@ -240,6 +454,13 @@
     "nAyah": 227,
     "revelationOrder": 47,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 19,
+        "start": 1,
+        "end": 227
+      }
+    ],
     "start": 2933,
     "end": 3159
   },
@@ -248,6 +469,18 @@
     "nAyah": 93,
     "revelationOrder": 48,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 19,
+        "start": 1,
+        "end": 59
+      },
+      {
+        "number": 20,
+        "start": 60,
+        "end": 93
+      }
+    ],
     "start": 3160,
     "end": 3252
   },
@@ -256,6 +489,13 @@
     "nAyah": 88,
     "revelationOrder": 49,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 20,
+        "start": 1,
+        "end": 88
+      }
+    ],
     "start": 3253,
     "end": 3340
   },
@@ -264,6 +504,18 @@
     "nAyah": 69,
     "revelationOrder": 85,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 20,
+        "start": 1,
+        "end": 44
+      },
+      {
+        "number": 21,
+        "start": 45,
+        "end": 69
+      }
+    ],
     "start": 3341,
     "end": 3409
   },
@@ -272,6 +524,13 @@
     "nAyah": 60,
     "revelationOrder": 84,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 21,
+        "start": 1,
+        "end": 60
+      }
+    ],
     "start": 3410,
     "end": 3469
   },
@@ -280,6 +539,13 @@
     "nAyah": 34,
     "revelationOrder": 57,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 21,
+        "start": 1,
+        "end": 34
+      }
+    ],
     "start": 3470,
     "end": 3503
   },
@@ -288,6 +554,13 @@
     "nAyah": 30,
     "revelationOrder": 75,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 21,
+        "start": 1,
+        "end": 30
+      }
+    ],
     "start": 3504,
     "end": 3533
   },
@@ -296,6 +569,18 @@
     "nAyah": 73,
     "revelationOrder": 90,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 21,
+        "start": 1,
+        "end": 30
+      },
+      {
+        "number": 22,
+        "start": 31,
+        "end": 73
+      }
+    ],
     "start": 3534,
     "end": 3606
   },
@@ -304,6 +589,13 @@
     "nAyah": 54,
     "revelationOrder": 58,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 22,
+        "start": 1,
+        "end": 54
+      }
+    ],
     "start": 3607,
     "end": 3660
   },
@@ -312,6 +604,13 @@
     "nAyah": 45,
     "revelationOrder": 43,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 22,
+        "start": 1,
+        "end": 45
+      }
+    ],
     "start": 3661,
     "end": 3705
   },
@@ -320,6 +619,18 @@
     "nAyah": 83,
     "revelationOrder": 41,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 22,
+        "start": 1,
+        "end": 21
+      },
+      {
+        "number": 23,
+        "start": 22,
+        "end": 83
+      }
+    ],
     "start": 3706,
     "end": 3788
   },
@@ -328,6 +639,13 @@
     "nAyah": 182,
     "revelationOrder": 56,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 23,
+        "start": 1,
+        "end": 182
+      }
+    ],
     "start": 3789,
     "end": 3970
   },
@@ -336,6 +654,13 @@
     "nAyah": 88,
     "revelationOrder": 38,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 23,
+        "start": 1,
+        "end": 88
+      }
+    ],
     "start": 3971,
     "end": 4058
   },
@@ -344,6 +669,18 @@
     "nAyah": 75,
     "revelationOrder": 59,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 23,
+        "start": 1,
+        "end": 31
+      },
+      {
+        "number": 24,
+        "start": 32,
+        "end": 75
+      }
+    ],
     "start": 4059,
     "end": 4133
   },
@@ -352,6 +689,13 @@
     "nAyah": 85,
     "revelationOrder": 60,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 24,
+        "start": 1,
+        "end": 85
+      }
+    ],
     "start": 4134,
     "end": 4218
   },
@@ -360,6 +704,18 @@
     "nAyah": 54,
     "revelationOrder": 61,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 24,
+        "start": 1,
+        "end": 46
+      },
+      {
+        "number": 25,
+        "start": 47,
+        "end": 54
+      }
+    ],
     "start": 4219,
     "end": 4272
   },
@@ -368,6 +724,13 @@
     "nAyah": 53,
     "revelationOrder": 62,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 25,
+        "start": 1,
+        "end": 53
+      }
+    ],
     "start": 4273,
     "end": 4325
   },
@@ -376,6 +739,13 @@
     "nAyah": 89,
     "revelationOrder": 63,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 25,
+        "start": 1,
+        "end": 89
+      }
+    ],
     "start": 4326,
     "end": 4414
   },
@@ -384,6 +754,13 @@
     "nAyah": 59,
     "revelationOrder": 64,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 25,
+        "start": 1,
+        "end": 59
+      }
+    ],
     "start": 4415,
     "end": 4473
   },
@@ -392,6 +769,13 @@
     "nAyah": 37,
     "revelationOrder": 65,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 25,
+        "start": 1,
+        "end": 37
+      }
+    ],
     "start": 4474,
     "end": 4510
   },
@@ -400,6 +784,13 @@
     "nAyah": 35,
     "revelationOrder": 66,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 35
+      }
+    ],
     "start": 4511,
     "end": 4545
   },
@@ -408,6 +799,13 @@
     "nAyah": 38,
     "revelationOrder": 95,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 38
+      }
+    ],
     "start": 4546,
     "end": 4583
   },
@@ -416,6 +814,13 @@
     "nAyah": 29,
     "revelationOrder": 111,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 29
+      }
+    ],
     "start": 4584,
     "end": 4612
   },
@@ -424,6 +829,13 @@
     "nAyah": 18,
     "revelationOrder": 106,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 18
+      }
+    ],
     "start": 4613,
     "end": 4630
   },
@@ -432,6 +844,13 @@
     "nAyah": 45,
     "revelationOrder": 34,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 45
+      }
+    ],
     "start": 4631,
     "end": 4675
   },
@@ -440,6 +859,18 @@
     "nAyah": 60,
     "revelationOrder": 67,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 26,
+        "start": 1,
+        "end": 30
+      },
+      {
+        "number": 27,
+        "start": 27,
+        "end": 60
+      }
+    ],
     "start": 4676,
     "end": 4735
   },
@@ -448,6 +879,13 @@
     "nAyah": 49,
     "revelationOrder": 76,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 49
+      }
+    ],
     "start": 4736,
     "end": 4784
   },
@@ -456,6 +894,13 @@
     "nAyah": 62,
     "revelationOrder": 23,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 62
+      }
+    ],
     "start": 4785,
     "end": 4846
   },
@@ -464,6 +909,13 @@
     "nAyah": 55,
     "revelationOrder": 37,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 55
+      }
+    ],
     "start": 4847,
     "end": 4901
   },
@@ -472,6 +924,13 @@
     "nAyah": 78,
     "revelationOrder": 97,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 78
+      }
+    ],
     "start": 4902,
     "end": 4979
   },
@@ -480,6 +939,13 @@
     "nAyah": 96,
     "revelationOrder": 46,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 96
+      }
+    ],
     "start": 4980,
     "end": 5075
   },
@@ -488,6 +954,13 @@
     "nAyah": 29,
     "revelationOrder": 94,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 27,
+        "start": 1,
+        "end": 29
+      }
+    ],
     "start": 5076,
     "end": 5104
   },
@@ -496,6 +969,13 @@
     "nAyah": 22,
     "revelationOrder": 105,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 22
+      }
+    ],
     "start": 5105,
     "end": 5126
   },
@@ -504,6 +984,13 @@
     "nAyah": 24,
     "revelationOrder": 101,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 24
+      }
+    ],
     "start": 5127,
     "end": 5150
   },
@@ -512,6 +999,13 @@
     "nAyah": 13,
     "revelationOrder": 91,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 13
+      }
+    ],
     "start": 5151,
     "end": 5163
   },
@@ -520,6 +1014,13 @@
     "nAyah": 14,
     "revelationOrder": 109,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 14
+      }
+    ],
     "start": 5164,
     "end": 5177
   },
@@ -528,6 +1029,13 @@
     "nAyah": 11,
     "revelationOrder": 110,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 11
+      }
+    ],
     "start": 5178,
     "end": 5188
   },
@@ -536,6 +1044,13 @@
     "nAyah": 11,
     "revelationOrder": 104,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 11
+      }
+    ],
     "start": 5189,
     "end": 5199
   },
@@ -544,6 +1059,13 @@
     "nAyah": 18,
     "revelationOrder": 108,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 18
+      }
+    ],
     "start": 5200,
     "end": 5217
   },
@@ -552,6 +1074,13 @@
     "nAyah": 12,
     "revelationOrder": 99,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 12
+      }
+    ],
     "start": 5218,
     "end": 5229
   },
@@ -560,6 +1089,13 @@
     "nAyah": 12,
     "revelationOrder": 107,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 28,
+        "start": 1,
+        "end": 12
+      }
+    ],
     "start": 5230,
     "end": 5241
   },
@@ -568,6 +1104,13 @@
     "nAyah": 30,
     "revelationOrder": 77,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 30
+      }
+    ],
     "start": 5242,
     "end": 5271
   },
@@ -576,6 +1119,13 @@
     "nAyah": 52,
     "revelationOrder": 2,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 52
+      }
+    ],
     "start": 5272,
     "end": 5323
   },
@@ -584,6 +1134,13 @@
     "nAyah": 52,
     "revelationOrder": 78,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 52
+      }
+    ],
     "start": 5324,
     "end": 5375
   },
@@ -592,6 +1149,13 @@
     "nAyah": 44,
     "revelationOrder": 79,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 44
+      }
+    ],
     "start": 5376,
     "end": 5419
   },
@@ -600,6 +1164,13 @@
     "nAyah": 28,
     "revelationOrder": 71,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 28
+      }
+    ],
     "start": 5420,
     "end": 5447
   },
@@ -608,6 +1179,13 @@
     "nAyah": 28,
     "revelationOrder": 40,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 28
+      }
+    ],
     "start": 5448,
     "end": 5475
   },
@@ -616,6 +1194,13 @@
     "nAyah": 20,
     "revelationOrder": 3,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 20
+      }
+    ],
     "start": 5476,
     "end": 5495
   },
@@ -624,6 +1209,13 @@
     "nAyah": 56,
     "revelationOrder": 4,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 56
+      }
+    ],
     "start": 5496,
     "end": 5551
   },
@@ -632,6 +1224,13 @@
     "nAyah": 40,
     "revelationOrder": 31,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 40
+      }
+    ],
     "start": 5552,
     "end": 5591
   },
@@ -640,6 +1239,13 @@
     "nAyah": 31,
     "revelationOrder": 98,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 31
+      }
+    ],
     "start": 5592,
     "end": 5622
   },
@@ -648,6 +1254,13 @@
     "nAyah": 50,
     "revelationOrder": 33,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 29,
+        "start": 1,
+        "end": 50
+      }
+    ],
     "start": 5623,
     "end": 5672
   },
@@ -656,6 +1269,13 @@
     "nAyah": 40,
     "revelationOrder": 80,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 40
+      }
+    ],
     "start": 5673,
     "end": 5712
   },
@@ -664,6 +1284,13 @@
     "nAyah": 46,
     "revelationOrder": 81,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 46
+      }
+    ],
     "start": 5713,
     "end": 5758
   },
@@ -672,6 +1299,13 @@
     "nAyah": 42,
     "revelationOrder": 24,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 42
+      }
+    ],
     "start": 5759,
     "end": 5800
   },
@@ -680,6 +1314,13 @@
     "nAyah": 29,
     "revelationOrder": 7,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 29
+      }
+    ],
     "start": 5801,
     "end": 5829
   },
@@ -688,6 +1329,13 @@
     "nAyah": 19,
     "revelationOrder": 82,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 19
+      }
+    ],
     "start": 5830,
     "end": 5848
   },
@@ -696,6 +1344,13 @@
     "nAyah": 36,
     "revelationOrder": 86,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 36
+      }
+    ],
     "start": 5849,
     "end": 5884
   },
@@ -704,6 +1359,13 @@
     "nAyah": 25,
     "revelationOrder": 83,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 25
+      }
+    ],
     "start": 5885,
     "end": 5909
   },
@@ -712,6 +1374,13 @@
     "nAyah": 22,
     "revelationOrder": 27,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 22
+      }
+    ],
     "start": 5910,
     "end": 5931
   },
@@ -720,6 +1389,13 @@
     "nAyah": 17,
     "revelationOrder": 36,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 17
+      }
+    ],
     "start": 5932,
     "end": 5948
   },
@@ -728,6 +1404,13 @@
     "nAyah": 19,
     "revelationOrder": 8,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 19
+      }
+    ],
     "start": 5949,
     "end": 5967
   },
@@ -736,6 +1419,13 @@
     "nAyah": 26,
     "revelationOrder": 68,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 26
+      }
+    ],
     "start": 5968,
     "end": 5993
   },
@@ -744,6 +1434,13 @@
     "nAyah": 30,
     "revelationOrder": 10,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 30
+      }
+    ],
     "start": 5994,
     "end": 6023
   },
@@ -752,6 +1449,13 @@
     "nAyah": 20,
     "revelationOrder": 35,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 20
+      }
+    ],
     "start": 6024,
     "end": 6043
   },
@@ -760,6 +1464,13 @@
     "nAyah": 15,
     "revelationOrder": 26,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 15
+      }
+    ],
     "start": 6044,
     "end": 6058
   },
@@ -768,6 +1479,13 @@
     "nAyah": 21,
     "revelationOrder": 9,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 21
+      }
+    ],
     "start": 6059,
     "end": 6079
   },
@@ -776,6 +1494,13 @@
     "nAyah": 11,
     "revelationOrder": 11,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 11
+      }
+    ],
     "start": 6080,
     "end": 6090
   },
@@ -784,6 +1509,13 @@
     "nAyah": 8,
     "revelationOrder": 12,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 8
+      }
+    ],
     "start": 6091,
     "end": 6098
   },
@@ -792,6 +1524,13 @@
     "nAyah": 8,
     "revelationOrder": 28,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 8
+      }
+    ],
     "start": 6099,
     "end": 6106
   },
@@ -800,6 +1539,13 @@
     "nAyah": 19,
     "revelationOrder": 1,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 19
+      }
+    ],
     "start": 6107,
     "end": 6125
   },
@@ -808,6 +1554,13 @@
     "nAyah": 5,
     "revelationOrder": 25,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 5
+      }
+    ],
     "start": 6126,
     "end": 6130
   },
@@ -816,6 +1569,13 @@
     "nAyah": 8,
     "revelationOrder": 100,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 8
+      }
+    ],
     "start": 6131,
     "end": 6138
   },
@@ -824,6 +1584,13 @@
     "nAyah": 8,
     "revelationOrder": 93,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 8
+      }
+    ],
     "start": 6139,
     "end": 6146
   },
@@ -832,6 +1599,13 @@
     "nAyah": 11,
     "revelationOrder": 14,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 11
+      }
+    ],
     "start": 6147,
     "end": 6157
   },
@@ -840,6 +1614,13 @@
     "nAyah": 11,
     "revelationOrder": 30,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 11
+      }
+    ],
     "start": 6158,
     "end": 6168
   },
@@ -848,6 +1629,13 @@
     "nAyah": 8,
     "revelationOrder": 16,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 8
+      }
+    ],
     "start": 6169,
     "end": 6176
   },
@@ -856,6 +1644,13 @@
     "nAyah": 3,
     "revelationOrder": 13,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 3
+      }
+    ],
     "start": 6177,
     "end": 6179
   },
@@ -864,6 +1659,13 @@
     "nAyah": 9,
     "revelationOrder": 32,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 9
+      }
+    ],
     "start": 6180,
     "end": 6188
   },
@@ -872,6 +1674,13 @@
     "nAyah": 5,
     "revelationOrder": 19,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 5
+      }
+    ],
     "start": 6189,
     "end": 6193
   },
@@ -880,6 +1689,13 @@
     "nAyah": 4,
     "revelationOrder": 29,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 4
+      }
+    ],
     "start": 6194,
     "end": 6197
   },
@@ -888,6 +1704,13 @@
     "nAyah": 7,
     "revelationOrder": 17,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 7
+      }
+    ],
     "start": 6198,
     "end": 6204
   },
@@ -896,6 +1719,13 @@
     "nAyah": 3,
     "revelationOrder": 15,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 3
+      }
+    ],
     "start": 6205,
     "end": 6207
   },
@@ -904,6 +1734,13 @@
     "nAyah": 6,
     "revelationOrder": 18,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 6
+      }
+    ],
     "start": 6208,
     "end": 6213
   },
@@ -912,6 +1749,13 @@
     "nAyah": 3,
     "revelationOrder": 114,
     "type": "medinan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 3
+      }
+    ],
     "start": 6214,
     "end": 6216
   },
@@ -921,6 +1765,13 @@
     "nAyah": 5,
     "revelationOrder": 6,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 5
+      }
+    ],
     "start": 6217,
     "end": 6221
   },
@@ -929,6 +1780,13 @@
     "nAyah": 4,
     "revelationOrder": 22,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 4
+      }
+    ],
     "start": 6222,
     "end": 6225
   },
@@ -937,6 +1795,13 @@
     "nAyah": 5,
     "revelationOrder": 20,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 5
+      }
+    ],
     "start": 6226,
     "end": 6230
   },
@@ -945,6 +1810,13 @@
     "nAyah": 6,
     "revelationOrder": 21,
     "type": "meccan",
+    "juz": [
+      {
+        "number": 30,
+        "start": 1,
+        "end": 6
+      }
+    ],
     "start": 6231,
     "end": 6236
   }
