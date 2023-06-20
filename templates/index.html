@@ -121,9 +121,8 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10px;
+            margin-left: 100px;
+        {#margin-right: auto;#} margin-top: 10px;
         }
 
         .button-56:after {
@@ -154,11 +153,109 @@
             outline: 0;
         }
 
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         @media (min-width: 768px) {
             .button-56 {
                 padding: 0 40px;
             }
         }
+
+        .tgl {
+            display: none;
+        }
+
+        .tgl,
+        .tgl:after,
+        .tgl:before,
+        .tgl *,
+        .tgl *:after,
+        .tgl *:before,
+        .tgl + .tgl-btn {
+            box-sizing: border-box;
+        }
+
+        .tgl::selection {
+            background: none;
+        }
+
+        .tgl + .tgl-btn {
+            outline: 0;
+            display: block;
+            width: 4em;
+            height: 2em;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .tgl + .tgl-btn:after,
+        .tgl + .tgl-btn:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+
+        .tgl + .tgl-btn:after {
+            left: 0;
+        }
+
+        .tgl + .tgl-btn:before {
+            display: none;
+        }
+
+        .tgl:checked + .tgl-btn:after {
+            left: 50%;
+        }
+
+        .tgl-ios + .tgl-btn {
+            background: #fbfbfb;
+            border-radius: 2em;
+            padding: 2px;
+            transition: all 0.4s ease;
+            border: 1px solid #e8eae9;
+        }
+
+        .tgl-ios + .tgl-btn:after {
+            border-radius: 2em;
+            background: #fbfbfb;
+            transition: left 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275),
+            padding 0.3s ease,
+            margin 0.3s ease;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
+            0 4px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .tgl-ios + .tgl-btn:hover:after {
+            will-change: padding;
+        }
+
+        .tgl-ios:active + .tgl-btn {
+            box-shadow: inset 0 0 0 2em #e8eae9;
+        }
+
+        .tgl-ios:active + .tgl-btn:after {
+            padding-right: 0.8em;
+        }
+
+        .tgl-ios:checked + .tgl-btn {
+            background: #86d993;
+        }
+
+        .tgl-ios:checked + .tgl-btn:active {
+            box-shadow: none;
+        }
+
+        .tgl-ios:checked + .tgl-btn:active:after {
+            margin-left: -0.8em;
+        }
+
     </style>
 </head>
 <body>
@@ -188,7 +285,13 @@
                     <td><b>Stuck</b></td>
                 </tr>
             </table>
-            <button class="button-56" type="submit">Submit</button>
+            <div class="button-container">
+                <h4 style="margin-right: 10px">Juz</h4>
+                <input id="cb2" class="tgl tgl-ios" type="checkbox">
+                <label class="tgl-btn" for="cb2"></label>
+                <button class="button-56" type="button">Reset</button>
+                <button class="button-56" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -207,7 +310,13 @@
                     <td><b>Stuck</b></td>
                 </tr>
             </table>
-            <button class="button-56" type="submit">Submit</button>
+            <div class="button-container">
+                <h4 style="margin-right: 10px">Juz</h4>
+                <input id="cb2" class="tgl tgl-ios" type="checkbox">
+                <label class="tgl-btn" for="cb2"></label>
+                <button class="button-56" type="button">Reset</button>
+                <button class="button-56" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -225,7 +334,13 @@
                     <td><b>Stuck</b></td>
                 </tr>
             </table>
-            <button id="form1-button" class="button-56" type="submit">Submit</button>
+            <div class="button-container">
+                <h4 style="margin-right: 10px">Juz</h4>
+                <input id="cb2" class="tgl tgl-ios" type="checkbox">
+                <label class="tgl-btn" for="cb2"></label>
+                <button class="button-56" type="button">Reset</button>
+                <button class="button-56" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -246,9 +361,26 @@
             return;
         }
 
+        let toggleChangeToJuz = document.createElement('button');
+        toggleChangeToJuz.innerHTML = 'Change to Juz';
+
+        // q: how to display this toggleChangeToJuz button?
+        // a: add it to the tableData0, tableData1, tableData2
+        // q: how to add it to the tableData0, tableData1, tableData2?
+        // a: use appendChild() method
+        // q: give me an example
+        // a: tableData0.appendChild(toggleChangeToJuz);
+        // q: where should I put that code?
+        // a: put it in the if statement below
+
         let table;
         if (type1 === 'Sabaq') {
             table = document.getElementById("tableData0");
+            // tableData0.insertBefore(toggleChangeToJuz, tableData0.firstChild);
+            // q: okay, I added it to the tableData0, but I want to add it at the top, not bottom.
+            // a: use insertBefore() method
+            // q: give me an example
+            // a: tableData0.insertBefore(toggleChangeToJuz, tableData0.firstChild);
 
         } else if (type1 === 'Sabaq-Para') {
             table = document.getElementById("tableData1");
@@ -339,8 +471,8 @@
                 selectTag2.selectedIndex = 2
                 selectTag2.options[0].disabled = true;
                 selectTag2.options[1].disabled = true;
-            };
-
+            }
+            ;
 
 
             let mistakeInput = document.createElement("input");
