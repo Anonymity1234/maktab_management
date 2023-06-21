@@ -277,6 +277,9 @@
             <table id="tableData0" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
+                    <td><b>Juz</b></td>
+                    <td><b>Q-Start</b></td>
+                    <td><b>Q-End</b></td>
                     <td><b>Surah</b></td>
                     <td><b>Ayah Start</b></td>
                     <td><b>Ayah End</b></td>
@@ -287,10 +290,10 @@
             </table>
             <div class="button-container">
                 <h4 style="margin-right: 10px">Juz</h4>
-                <input id="cb2" class="tgl tgl-ios" type="checkbox">
-                <label class="tgl-btn" for="cb2"></label>
-                <button class="button-56" type="button">Reset</button>
+                <input id="cb1" class="tgl tgl-ios" type="checkbox">
+                <label class="tgl-btn" for="cb1"></label>
                 <button class="button-56" type="submit">Submit</button>
+                <button class="button-56" type="button">Reset</button>
             </div>
         </form>
     </div>
@@ -302,6 +305,9 @@
             <table id="tableData1" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
+                    <td><b>Juz</b></td>
+                    <td><b>Q-Start</b></td>
+                    <td><b>Q-End</b></td>
                     <td><b>Surah</b></td>
                     <td><b>Ayah Start</b></td>
                     <td><b>Ayah End</b></td>
@@ -314,8 +320,8 @@
                 <h4 style="margin-right: 10px">Juz</h4>
                 <input id="cb2" class="tgl tgl-ios" type="checkbox">
                 <label class="tgl-btn" for="cb2"></label>
-                <button class="button-56" type="button">Reset</button>
                 <button class="button-56" type="submit">Submit</button>
+                <button class="button-56" type="button">Reset</button>
             </div>
         </form>
     </div>
@@ -326,6 +332,9 @@
             <table id="tableData2" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
+                    <td><b>Juz</b></td>
+                    <td><b>Q-Start</b></td>
+                    <td><b>Q-End</b></td>
                     <td><b>Surah</b></td>
                     <td><b>Ayah Start</b></td>
                     <td><b>Ayah End</b></td>
@@ -336,10 +345,10 @@
             </table>
             <div class="button-container">
                 <h4 style="margin-right: 10px">Juz</h4>
-                <input id="cb2" class="tgl tgl-ios" type="checkbox">
-                <label class="tgl-btn" for="cb2"></label>
-                <button class="button-56" type="button">Reset</button>
+                <input id="cb3" class="tgl tgl-ios" type="checkbox">
+                <label class="tgl-btn" for="cb3"></label>
                 <button class="button-56" type="submit">Submit</button>
+                <button class="button-56" type="button">Reset</button>
             </div>
         </form>
     </div>
@@ -399,7 +408,11 @@
         for (let i = 0; i < studentNames.length; i++) {
             let row = table.insertRow();
             let nameCell = row.insertCell(0);
-            let surahCell = row.insertCell(1);
+            let juzCell = row.insertCell(1);
+            let quartersStartCell = row.insertCell(2);
+            let quartersEndCell = row.insertCell(3);
+            let surahCell = row.insertCell(4);
+
 
             // Create a hidden input field for the student's name
             let nameInput = document.createElement("input");
@@ -418,8 +431,42 @@
             nameSpan.innerText = studentNames[i];
             nameCell.appendChild(nameSpan);
 
+            let juz = ["---", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+
+            let juzTab = document.createElement('select');
+            juzTab.setAttribute('name', 'juz');
+            juz.map((juz, i) => {
+                let opt = document.createElement("option");
+                opt.value = i; // the index
+                opt.innerHTML = juz;
+                juzTab.append(opt);
+            });
+            juzCell.appendChild(juzTab);
+
+            let quarters = ["---", 1, 2, 3, 4];
+            let quartersStartTab = document.createElement('select');
+            quartersStartTab.setAttribute('name', 'quarters');
+            quarters.map((quarter, i) => {
+                let opt = document.createElement("option");
+                opt.value = i; // the index
+                opt.innerHTML = quarter;
+                quartersStartTab.append(opt);
+            });
+            quartersStartCell.appendChild(quartersStartTab);
+
+            let quartersEndTab = document.createElement('select');
+            quartersEndTab.setAttribute('name', 'quarters');
+            quarters.map((quarter, i) => {
+                let opt = document.createElement("option");
+                opt.value = i; // the index
+                opt.innerHTML = quarter;
+                quartersEndTab.append(opt);
+            });
+            quartersEndCell.appendChild(quartersEndTab);
+
+
             let selectTag = document.createElement('select');
-            selectTag.setAttribute('name', 'surah')
+            selectTag.setAttribute('name', 'surah');
             surahNames.map((surah, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -429,11 +476,11 @@
             surahCell.appendChild(selectTag);
 
 
-            let ayahStartCell = row.insertCell(2);
-            let ayahEndCell = row.insertCell(3);
-            let typeCell = row.insertCell(4);
-            let mistakesCell = row.insertCell(5);
-            let stuckCell = row.insertCell(6);
+            let ayahStartCell = row.insertCell(5);
+            let ayahEndCell = row.insertCell(6);
+            let typeCell = row.insertCell(7);
+            let mistakesCell = row.insertCell(8);
+            let stuckCell = row.insertCell(9);
 
             let ayahStartInput = document.createElement("input");
             ayahStartInput.type = "number";
