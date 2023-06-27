@@ -277,9 +277,9 @@
             <table id="tableData0" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
-                    <td><b>Juz</b></td>
-                    <td><b>Q-Start</b></td>
-                    <td><b>Q-End</b></td>
+                    <td class="hideable_col_head"><b>Juz</b></td>
+                    <td class="hideable_col_head"><b>Q-Start</b></td>
+                    <td class="hideable_col_head"><b>Q-End</b></td>
                     <td><b>Surah</b></td>
                     <td><b>Ayah Start</b></td>
                     <td><b>Ayah End</b></td>
@@ -290,8 +290,9 @@
             </table>
             <div class="button-container">
                 <h4 style="margin-right: 10px">Juz</h4>
-                <input id="cb1" class="tgl tgl-ios" type="checkbox">
-                <label class="tgl-btn" for="cb1"></label>
+                <input id="hideable_col" class="tgl tgl-ios" value='hide' type="checkbox"
+                       onchange="hideShowTable(this.id);">
+                <label class="tgl-btn" for="hideable_col"></label>
                 <button class="button-56" type="submit">Submit</button>
                 <button class="button-56" type="button">Reset</button>
             </div>
@@ -409,8 +410,11 @@
             let row = table.insertRow();
             let nameCell = row.insertCell(0);
             let juzCell = row.insertCell(1);
+            juzCell.setAttribute('class', 'hideable_col');
             let quartersStartCell = row.insertCell(2);
+            quartersStartCell.setAttribute('class', 'hideable_col');
             let quartersEndCell = row.insertCell(3);
+            quartersEndCell.setAttribute('class', 'hideable_col');
             let surahCell = row.insertCell(4);
 
 
@@ -443,10 +447,10 @@
             });
             juzCell.appendChild(juzTab);
 
-            let quarters = ["", 1, 2, 3, 4];
+            let quartersStart = ["", 0, 1, 2, 3];
             let quartersStartTab = document.createElement('select');
             quartersStartTab.setAttribute('name', 'quarters');
-            quarters.map((quarter, i) => {
+            quartersStart.map((quarter, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
                 opt.innerHTML = quarter;
@@ -454,9 +458,11 @@
             });
             quartersStartCell.appendChild(quartersStartTab);
 
+            let quartersEnd = ["", 1, 2, 3, 4];
+
             let quartersEndTab = document.createElement('select');
             quartersEndTab.setAttribute('name', 'quarters');
-            quarters.map((quarter, i) => {
+            quartersEnd.map((quarter, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
                 opt.innerHTML = quarter;
@@ -679,6 +685,115 @@
     form1.addEventListener('submit', submitForm); //Modern browsers
     form2.addEventListener('submit', submitForm); //Modern browsers
     form3.addEventListener('submit', submitForm); //Modern browsers
+
+
+    function hideShowTable(columnName) {
+        var checkboxValue = document.getElementById(columnName).value;
+        if (checkboxValue == "hide") {
+            var allColumns = document.getElementsByClassName(columnName);
+            for (var i = 0; i < allColumns.length; i++) {
+                allColumns[i].style.display = "none";
+            }
+            {#for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {#}
+            {#    document.getElementsByClassName(columnName + "_head")[i].style.display = "none";#}
+            {#    document.getElementsByClassName(columnName)[i].value = "show";#}
+
+            for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {
+                document.getElementsByClassName(columnName + "_head")[i].style.display = "none";
+                document.getElementById(columnName).value = "show";
+            }
+        } else {
+            let allColumns = document.getElementsByClassName(columnName);
+            for (let i = 0; i < allColumns.length; i++) {
+                allColumns[i].style.display = "table-cell";
+            }
+            {#for (let i = 0; i < allColumns.length; i++) {#}
+            {#    document.getElementsByClassName(columnName + "_head")[i].style.display = "table-cell";#}
+            {#    document.getElementsByClassName(columnName)[i].value = "hide";#}
+            for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {
+                document.getElementsByClassName(columnName + "_head")[i].style.display = "table-cell";
+                document.getElementById(columnName).value = "hide";
+            }
+            {#document.getElementById(columnName + "_head").style.display = "table-cell";#}
+            {#document.getElementById(columnName).value = "hide";#}
+        }
+    }
+
+
+    {#    function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var allColumns = document.getElementsByClassName('hideable_col');#}
+    {#    var allHeaders = document.getElementsByClassName('hideable_col_head');#}
+    {##}
+    {#    if (checkbox.checked) {#}
+    {#        for (var i = 0; i < allColumns.length; i++) {#}
+    {#            allColumns[i].style.display = "table-cell";#}
+    {#        }#}
+    {#        for (var i = 0; i < allHeaders.length; i++) {#}
+    {#            allHeaders[i].style.display = "table-cell";#}
+    {#        }#}
+    {#    } else{#}
+    {#        for (var i = 0; i < allColumns.length; i++) {#}
+    {#            allColumns[i].style.display = "none";#}
+    {#        }#}
+    {#        for (var i = 0; i < allHeaders.length; i++) {#}
+    {#            allHeaders[i].style.display = "none";#}
+    {#        }#}
+    {#    }#}
+
+
+    {#function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var isCheckboxChecked = checkbox.checked;#}
+    {##}
+    {#    var columnCells = document.getElementsByClassName(columnName);#}
+    {#    var columnHeads = document.getElementsByClassName(columnName + "_head");#}
+    {##}
+    {#    for (var i = 0; i < columnCells.length; i++) {#}
+    {#        columnCells[i].style.display = isCheckboxChecked ? "none" : "table-cell";#}
+    {#    }#}
+    {#    for (var i = 0; i < columnHeads.length; i++) {#}
+    {#        columnHeads[i].style.display = isCheckboxChecked ? "none" : "table-cell";#}
+    {#    }#}
+
+    {#function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var isCheckboxChecked = checkbox.checked;#}
+    {##}
+    {#    var columnCells = document.getElementsByClassName(columnName);#}
+    {#    var columnHeads = document.getElementsByClassName(columnName + "_head");#}
+    {##}
+    {#    var displayValue = isCheckboxChecked ? "" : "none";#}
+    {##}
+    {#    for (var i = 0; i < columnCells.length; i++) {#}
+    {#        columnCells[i].parentNode.style.display = displayValue;#}
+    {#    }#}
+    {#    for (var i = 0; i < columnHeads.length; i++) {#}
+    {#        columnHeads[i].parentNode.style.display = displayValue;#}
+    {#    }#}
+
+    {##}
+    {#    function hideShowTable(columnName) {#}
+    {#        var checkbox = document.getElementById(columnName);#}
+    {#        var isCheckboxChecked = checkbox.checked;#}
+    {#        var displayValue = isCheckboxChecked ? "none" : "";#}
+    {##}
+    {#        var columnCells = Array.from(document.getElementsByClassName(columnName));#}
+    {#        columnCells.forEach(function (cell) {#}
+    {#            cell.style.display = displayValue;#}
+    {#        });#}
+    {##}
+    {#        // List the column names of the headers you want to hide#}
+    {#        var headersToHide = ["Juz", "Q-Start", "Q-End"];#}
+    {##}
+    {#        if (headersToHide.includes(columnName)) {#}
+    {#            var columnHeads = Array.from(document.getElementsByClassName(columnName + "_head"));#}
+    {#            columnHeads.forEach(function (head) {#}
+    {#                head.style.display = displayValue;#}
+    {#            });#}
+    {#        }#}
+    {#    }#}
+
 
     // q: how to get an element of the form like an element of the form1, I am specifically looking for getting the value of type and submitting that in the form as well, because as of now the form submitted doesn't have that field?
     // a: you can use document.getElementById('typeId') or document.querySelector('#typeId') or document.querySelector('.typeClass')
