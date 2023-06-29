@@ -309,7 +309,6 @@
             <table id="tableData1" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
-                    <td><b></b></td>
                     <td><b>Juz</b></td>
                     <td><b>Q-Start</b></td>
                     <td><b>Q-End</b></td>
@@ -337,7 +336,6 @@
             <table id="tableData2" class="tableData" style="cellpadding:2">
                 <tr>
                     <td><b>Student Name</b></td>
-                    <td><b></b></td>
                     <td><b>Juz</b></td>
                     <td><b>Q-Start</b></td>
                     <td><b>Q-End</b></td>
@@ -379,9 +377,23 @@
         let toggleChangeToJuz = document.createElement('button');
         toggleChangeToJuz.innerHTML = 'Change to Juz';
 
+        // q: how to display this toggleChangeToJuz button?
+        // a: add it to the tableData0, tableData1, tableData2
+        // q: how to add it to the tableData0, tableData1, tableData2?
+        // a: use appendChild() method
+        // q: give me an example
+        // a: tableData0.appendChild(toggleChangeToJuz);
+        // q: where should I put that code?
+        // a: put it in the if statement below
+
         let table;
         if (type1 === 'Sabaq') {
             table = document.getElementById("tableData0");
+            // tableData0.insertBefore(toggleChangeToJuz, tableData0.firstChild);
+            // q: okay, I added it to the tableData0, but I want to add it at the top, not bottom.
+            // a: use insertBefore() method
+            // q: give me an example
+            // a: tableData0.insertBefore(toggleChangeToJuz, tableData0.firstChild);
 
         } else if (type1 === 'Sabaq-Para') {
             table = document.getElementById("tableData1");
@@ -400,6 +412,8 @@
         for (let i = 0; i < studentNames.length; i++) {
             let row = table.insertRow();
             let nameCell = row.insertCell(0);
+            // <input id="cb3" class="tgl tgl-ios" type="checkbox">
+            // <label class="tgl-btn" for="cb3"></label>
 
             // create a checkbox element
             let checkboxCell = row.insertCell(1);
@@ -434,6 +448,9 @@
 
             // Append the hidden input field to the form
             nameCell.appendChild(nameInput);
+
+            // Set the innerText of the table cell to the student's name
+            //nameCell.innerText = studentNames[i];
 
             // Create a span element to hold the student's name
             let nameSpan = document.createElement("span");
@@ -542,6 +559,12 @@
             stuckInput.type = "number";
             stuckInput.name = "stuck";
             stuckCell.appendChild(stuckInput);
+
+            // Add additional cells if needed and set their values
+
+            // For example:
+            // let surahCell = row.insertCell(1);
+            // surahCell.innerText = "Some Surah";
         }
 
         generatedTables[type1] = true;
@@ -562,12 +585,63 @@
 
         }
 
+        {% comment %}if (!evt.currentTarget.className.includes("active")) {
+
+            evt.currentTarget.addEventListener('click', tableGenerator(type)); // this works but it duplicates the table
+        }{% endcomment %}
+
         document.getElementById(type1).style.display = "block";
         evt.currentTarget.className += " active";
 
         tableGenerator(type1);
+        // tabcontent.innerHTML = tableGenerator(type); // this works as well though it duplicates the table
 
     }
+
+
+    // tabcontent.forEach(button => button.addEventListener('click', tableGenerator));
+    // tabconent.innerHTML = tableGenerator();
+    // document.getElementById("tableData").innerHTML = tableGenerator();
+
+
+    // how to insert the tableGenerator function here?
+
+    // q: how to insert the tableGenerator function here?
+    // a: you can't. you need to call it from the onclick event of the button
+    // q: how to call it from the onclick event of the button?
+    // a: you need to add an event listener to the button
+    // q: how to add an event listener to the button?
+    // a: you need to get the button element and then call addEventListener on it
+    // q: how to get the button element?
+    // a: you can use document.getElementById('buttonId') or document.querySelector('#buttonId') or document.querySelector('.buttonClass')
+
+    // q: but which button are you talking about?
+    // a: the button that was clicked. you can get it from the event object that is passed to the function
+    // q: where is that button in this code?
+    // a: it's the evt.currentTarget
+
+    // q: how to get the evt.currentTarget?
+    // a: it's the first argument passed to the function
+    // q: how to get the first argument passed to the function?
+    // a: you can use the name of the argument, in this case evt
+    // q: how to get the name of the argument?
+    // a: you don't need to get the name of the argument, you just need to use it in the function
+
+    // q: give me an example of that code
+    // a: evt.currentTarget.addEventListener('click', tableGenerator)
+
+    // q: and where should I put this evt.currentTarget.addEventListener('click', tableGenerator) code?
+    // a: you can put it anywhere in the function, but it's better to put it at the end of the function
+    // q: where at the end of the function?
+    // a: after the for loop
+    // q: which for loop? there are two for loops in this function
+    // a: the first one
+    // q: why the first one?
+    // a: because the second one is inside the first one, so it will be executed multiple times
+    // q: but you are wrong though, the second for loop is not inside the first one
+    // a: yes it is, look at the code again
+    // q: I looked at the code again and I am 100% sure it is not inside the first loop!
+    // a: you are right, it's not inside the first loop, but it's inside the function, so it will be executed multiple times
 
 
     // Function to handle form submission
@@ -583,6 +657,10 @@
         }
 
         var formData = new FormData(form);
+
+        // console.log(document.getElementById("submission-form1"));
+        // console.log(document.forms["submission-form1"].elements[1]);
+
 
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://127.0.0.1:8000');
@@ -600,6 +678,16 @@
         xhr.send(formData);
         if (event.target === form1) {
             document.getElementById("submission-form1").reset();
+            // q: also write down an alert message here but in a modal
+            // q: I want to use a modal for the alert message, how to do that?
+            // a: you can use bootstrap modal
+            // q: how to use bootstrap modal?
+            // a: you can use the code from the bootstrap website
+            // q: i want to build a modal from scratch, how to do that?
+            // q: i don't want to use bootstrap modal, how to build a modal from scratch?
+            // a: you can use the code from the w3schools website
+            // q: give me the link to the w3schools website
+            // a: https://www.w3schools.com/howto/howto_css_modals.asp
 
         } else if (event.target === form2) {
             document.getElementById("submission-form2").reset();
@@ -610,6 +698,8 @@
     }
 
     // Add event listener to the form submit event
+
+
     var form1 = document.getElementById('submission-form1');
     var form2 = document.getElementById('submission-form2');
     var form3 = document.getElementById('submission-form3');
@@ -626,6 +716,10 @@
             for (var i = 0; i < allColumns.length; i++) {
                 allColumns[i].style.display = "none";
             }
+            {#for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {#}
+            {#    document.getElementsByClassName(columnName + "_head")[i].style.display = "none";#}
+            {#    document.getElementsByClassName(columnName)[i].value = "show";#}
+
             for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {
                 document.getElementsByClassName(columnName + "_head")[i].style.display = "none";
                 document.getElementById(columnName).value = "show";
@@ -635,13 +729,104 @@
             for (let i = 0; i < allColumns.length; i++) {
                 allColumns[i].style.display = "table-cell";
             }
+            {#for (let i = 0; i < allColumns.length; i++) {#}
+            {#    document.getElementsByClassName(columnName + "_head")[i].style.display = "table-cell";#}
+            {#    document.getElementsByClassName(columnName)[i].value = "hide";#}
             for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {
                 document.getElementsByClassName(columnName + "_head")[i].style.display = "table-cell";
                 document.getElementById(columnName).value = "hide";
             }
+            {#document.getElementById(columnName + "_head").style.display = "table-cell";#}
+            {#document.getElementById(columnName).value = "hide";#}
         }
     }
 
+
+    {#    function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var allColumns = document.getElementsByClassName('hideable_col');#}
+    {#    var allHeaders = document.getElementsByClassName('hideable_col_head');#}
+    {##}
+    {#    if (checkbox.checked) {#}
+    {#        for (var i = 0; i < allColumns.length; i++) {#}
+    {#            allColumns[i].style.display = "table-cell";#}
+    {#        }#}
+    {#        for (var i = 0; i < allHeaders.length; i++) {#}
+    {#            allHeaders[i].style.display = "table-cell";#}
+    {#        }#}
+    {#    } else{#}
+    {#        for (var i = 0; i < allColumns.length; i++) {#}
+    {#            allColumns[i].style.display = "none";#}
+    {#        }#}
+    {#        for (var i = 0; i < allHeaders.length; i++) {#}
+    {#            allHeaders[i].style.display = "none";#}
+    {#        }#}
+    {#    }#}
+
+
+    {#function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var isCheckboxChecked = checkbox.checked;#}
+    {##}
+    {#    var columnCells = document.getElementsByClassName(columnName);#}
+    {#    var columnHeads = document.getElementsByClassName(columnName + "_head");#}
+    {##}
+    {#    for (var i = 0; i < columnCells.length; i++) {#}
+    {#        columnCells[i].style.display = isCheckboxChecked ? "none" : "table-cell";#}
+    {#    }#}
+    {#    for (var i = 0; i < columnHeads.length; i++) {#}
+    {#        columnHeads[i].style.display = isCheckboxChecked ? "none" : "table-cell";#}
+    {#    }#}
+
+    {#function hideShowTable(columnName) {#}
+    {#    var checkbox = document.getElementById(columnName);#}
+    {#    var isCheckboxChecked = checkbox.checked;#}
+    {##}
+    {#    var columnCells = document.getElementsByClassName(columnName);#}
+    {#    var columnHeads = document.getElementsByClassName(columnName + "_head");#}
+    {##}
+    {#    var displayValue = isCheckboxChecked ? "" : "none";#}
+    {##}
+    {#    for (var i = 0; i < columnCells.length; i++) {#}
+    {#        columnCells[i].parentNode.style.display = displayValue;#}
+    {#    }#}
+    {#    for (var i = 0; i < columnHeads.length; i++) {#}
+    {#        columnHeads[i].parentNode.style.display = displayValue;#}
+    {#    }#}
+
+    {##}
+    {#    function hideShowTable(columnName) {#}
+    {#        var checkbox = document.getElementById(columnName);#}
+    {#        var isCheckboxChecked = checkbox.checked;#}
+    {#        var displayValue = isCheckboxChecked ? "none" : "";#}
+    {##}
+    {#        var columnCells = Array.from(document.getElementsByClassName(columnName));#}
+    {#        columnCells.forEach(function (cell) {#}
+    {#            cell.style.display = displayValue;#}
+    {#        });#}
+    {##}
+    {#        // List the column names of the headers you want to hide#}
+    {#        var headersToHide = ["Juz", "Q-Start", "Q-End"];#}
+    {##}
+    {#        if (headersToHide.includes(columnName)) {#}
+    {#            var columnHeads = Array.from(document.getElementsByClassName(columnName + "_head"));#}
+    {#            columnHeads.forEach(function (head) {#}
+    {#                head.style.display = displayValue;#}
+    {#            });#}
+    {#        }#}
+    {#    }#}
+
+
+    // q: how to get an element of the form like an element of the form1, I am specifically looking for getting the value of type and submitting that in the form as well, because as of now the form submitted doesn't have that field?
+    // a: you can use document.getElementById('typeId') or document.querySelector('#typeId') or document.querySelector('.typeClass')
+    // q: how do I use that?
+    // a: you can use it in the submitForm function
+    // q: how to use it in the submitForm function?
+    // a: you can get the value of the type field and then add it to the formData
+    // q: how to get the value of the type field?
+    // a: you can use document.getElementById('typeId').value or document.querySelector('#typeId').value or document.querySelector('.typeClass').value
+
 </script>
+
 </body>
 </html>
