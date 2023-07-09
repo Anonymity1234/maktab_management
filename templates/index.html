@@ -256,6 +256,41 @@
             margin-left: -0.8em;
         }
 
+
+        /* this is  */
+        table {
+            width: 100%;
+        }
+
+        .column {
+            max-width: 100px;
+            overflow: hidden;
+            transition: opacity 2s ease, max-width 2s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .closed {
+            transition: 1s ease, max-width 1s ease;
+
+        }
+
+        .open {
+            max-width: 1000px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .rowForm {
+            display: flex;
+            /* make the form a flex container */
+            align-items: center;
+            /* center items vertically in the container */
+            gap: 10px;
+            /* add some gap between items */
+        }
+
+
     </style>
 </head>
 <body>
@@ -294,7 +329,7 @@
             <div class="button-container">
                 <h4 style="margin-right: 10px">Juz</h4>
                 <input id="hideable_col" class="tgl tgl-ios" value='hide' type="checkbox"
-                       onchange="hideShowTable(this.id);">
+                       onchange="hideShowJuz(this.id);">
                 <label class="tgl-btn" for="hideable_col"></label>
                 <button class="button-56" type="submit">Submit</button>
                 <button class="button-56" type="button">Reset</button>
@@ -399,32 +434,9 @@
 
         for (let i = 0; i < studentNames.length; i++) {
             let row = table.insertRow();
+            row.id = 'row' + i;
+
             let nameCell = row.insertCell(0);
-
-            // create a checkbox element
-            let checkboxCell = row.insertCell(1);
-            let checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.setAttribute('class', 'tgl tgl-ios');
-            checkbox.setAttribute('value', 'hide');
-            checkbox.setAttribute('id', 'hideable_col' + i);
-            checkbox.setAttribute('onchange', 'hideShowTable(this.id);');
-            checkboxCell.appendChild(checkbox);
-            let checkboxLabel = document.createElement("label");
-            checkboxLabel.setAttribute('class', 'tgl-btn');
-            checkboxLabel.setAttribute('for', 'hideable_col' + i);
-
-            checkboxCell.appendChild(checkboxLabel);
-
-
-            let juzCell = row.insertCell(2);
-            juzCell.setAttribute('class', 'hideable_col');
-            let quartersStartCell = row.insertCell(3);
-            quartersStartCell.setAttribute('class', 'hideable_col');
-            let quartersEndCell = row.insertCell(4);
-            quartersEndCell.setAttribute('class', 'hideable_col');
-            let surahCell = row.insertCell(5);
-
 
             // Create a hidden input field for the student's name
             let nameInput = document.createElement("input");
@@ -440,6 +452,53 @@
             nameSpan.innerText = studentNames[i];
             nameCell.appendChild(nameSpan);
 
+
+            // create a checkbox element
+            let checkboxCell = row.insertCell(1);
+
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.setAttribute('class', 'tgl tgl-ios');
+            checkbox.setAttribute('value', 'hide');
+            checkbox.setAttribute('id', 'hideable_col' + i);
+            checkbox.setAttribute('onchange', 'hideShowRow(this.id);');
+            checkboxCell.appendChild(checkbox);
+            let checkboxLabel = document.createElement("label");
+            checkboxLabel.setAttribute('class', 'tgl-btn');
+            checkboxLabel.setAttribute('for', 'hideable_col' + i);
+            checkboxCell.appendChild(checkboxLabel);
+
+            // q: how can i make this juz cell only appear if the checkbox is checked?
+            // a: add a class to the cell, and then use css to hide it
+            // q: how to make a class for the cell and then use css to hide it? I mean give me the exact code
+            // a: I can't give you the exact code, but I can give you an example of how to do it
+            // a: first, you need to add a class to the cell
+            // a: let juzCell = row.insertCell(2);
+            // a: juzCell.setAttribute('class', 'hideable_col');
+            // a: then, you need to add css to hide the cell
+            // a: .hideable_col { display: none; }
+            // a: then, you need to add an onchange event to the checkbox
+            // a: checkbox.setAttribute('onchange', 'hideShowRow(this.id);');
+            // a: then, you need to add a function to hide/show the cell
+
+            // a: function hideShowRow(id) {
+            // a:     let cell = document.getElementById(id);
+            // a:     let row = cell.parentNode.parentNode;
+            // a:     let hideableCells = row.getElementsByClassName('hideable_col');
+            // a:     for (let i = 0; i < hideableCells.length; i++) {
+            // a:         if (cell.checked) {
+            // a:             hideableCells[i].style.display = 'table-cell';
+            // a:         } else {
+            // a:             hideableCells[i].style.display = 'none';
+            // a:         }
+            // a:     }
+            // a: }
+
+
+            let juzCell = row.insertCell(2);
+
+            juzCell.setAttribute('class', 'hideable_col hidden-column');
+
             let juz = ["", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
             let juzTab = document.createElement('select');
@@ -452,9 +511,12 @@
             });
             juzCell.appendChild(juzTab);
 
+            let quartersStartCell = row.insertCell(3);
+
+            quartersStartCell.setAttribute('class', 'hideable_col hidden-column');
             let quartersStart = ["", 0, 1, 2, 3];
             let quartersStartTab = document.createElement('select');
-            quartersStartTab.setAttribute('name', 'quarters');
+            quartersStartTab.setAttribute('name', 'quartersStart');
             quartersStart.map((quarter, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -463,10 +525,13 @@
             });
             quartersStartCell.appendChild(quartersStartTab);
 
-            let quartersEnd = ["", 1, 2, 3, 4];
 
+            let quartersEndCell = row.insertCell(4);
+
+            quartersEndCell.setAttribute('class', 'hideable_col hidden-column');
+            let quartersEnd = ["", 1, 2, 3, 4];
             let quartersEndTab = document.createElement('select');
-            quartersEndTab.setAttribute('name', 'quarters');
+            quartersEndTab.setAttribute('name', 'quartersEnd');
             quartersEnd.map((quarter, i) => {
                 let opt = document.createElement("option");
                 opt.value = i; // the index
@@ -475,6 +540,9 @@
             });
             quartersEndCell.appendChild(quartersEndTab);
 
+
+            let surahCell = row.insertCell(5);
+            surahCell.setAttribute('class', 'hidden-column');
 
             let selectTag = document.createElement('select');
             selectTag.setAttribute('name', 'surah');
@@ -488,20 +556,28 @@
 
 
             let ayahStartCell = row.insertCell(6);
-            let ayahEndCell = row.insertCell(7);
-            let typeCell = row.insertCell(8);
-            let mistakesCell = row.insertCell(9);
-            let stuckCell = row.insertCell(10);
+
+            ayahStartCell.setAttribute('class', 'hidden-column');
 
             let ayahStartInput = document.createElement("input");
             ayahStartInput.type = "number";
             ayahStartInput.name = "ayahStart";
             ayahStartCell.appendChild(ayahStartInput);
 
+
+            let ayahEndCell = row.insertCell(7);
+
+            ayahEndCell.setAttribute('class', 'hidden-column');
+
             let ayahEndInput = document.createElement("input");
             ayahEndInput.type = "number";
             ayahEndInput.name = "ayahEnd";
             ayahEndCell.appendChild(ayahEndInput);
+
+
+            let typeCell = row.insertCell(8);
+
+            typeCell.setAttribute('class', 'hidden-column');
 
             let types = ['Sabaq', 'Sabaq-Para', 'Daur'];
             let selectTag2 = document.createElement('select');
@@ -533,16 +609,27 @@
             ;
 
 
+            let mistakesCell = row.insertCell(9);
+
+            mistakesCell.setAttribute('class', 'hidden-column');
+
             let mistakeInput = document.createElement("input");
             mistakeInput.type = "number";
             mistakeInput.name = "mistake";
             mistakesCell.appendChild(mistakeInput);
 
+
+            let stuckCell = row.insertCell(10);
+
+            stuckCell.setAttribute('class', 'hidden-column');
+
             let stuckInput = document.createElement("input");
             stuckInput.type = "number";
             stuckInput.name = "stuck";
             stuckCell.appendChild(stuckInput);
+
         }
+        ;
 
         generatedTables[type1] = true;
     }
@@ -619,7 +706,7 @@
     form3.addEventListener('submit', submitForm); //Modern browsers
 
 
-    function hideShowTable(columnName) {
+    function hideShowJuz(columnName) {
         var checkboxValue = document.getElementById(columnName).value;
         if (checkboxValue == "hide") {
             var allColumns = document.getElementsByClassName(columnName);
@@ -638,6 +725,29 @@
             for (let i = 0; i < document.getElementsByClassName(columnName + "_head").length; i++) {
                 document.getElementsByClassName(columnName + "_head")[i].style.display = "table-cell";
                 document.getElementById(columnName).value = "hide";
+            }
+        }
+    }
+
+    function hideShowRow(rowId) {
+        var checkboxValue = document.getElementById(rowId).value;
+        if (checkboxValue == "hide") {
+            var row = document.getElementById(rowId);
+
+            row.style.display = "none";
+
+            for (let i = 0; i < document.getElementsByClassName(rowId + "_head").length; i++) {
+                document.getElementsByClassName(rowId + "_head")[i].style.display = "none";
+                document.getElementById(rowId).value = "show";
+            }
+        } else {
+            let allRows = document.getElementsByClassName(rowId);
+            for (let i = 0; i < allRows.length; i++) {
+                allRows[i].style.display = "table-row";
+            }
+            for (let i = 0; i < document.getElementsByClassName(rowId + "_head").length; i++) {
+                document.getElementsByClassName(rowId + "_head")[i].style.display = "table-row";
+                document.getElementById(rowId).value = "hide";
             }
         }
     }
