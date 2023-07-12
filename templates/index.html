@@ -98,6 +98,28 @@
             text-align: center;
         }
 
+        /*
+        .hidden-column {
+            display: none;
+        }
+        */
+
+        .tableData tr:hover {
+            background-color: #ddd;
+        }
+        td:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        td:nth-child(2) {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+
+
+
         /* Button style */
         .button-56 {
             align-items: center;
@@ -299,7 +321,7 @@
     <h4 style="text-align: center">Student Record</h4>
 
     <div class="tab">
-        <button class="tablinks" onclick="hifdhType(event, 'Sabaq')">Sabaq</button>
+        <button class="tablinks" onclick="hifdhType(event, 'Sabaq'), fetchAllRows()">Sabaq</button>
         <button class="tablinks" onclick="hifdhType(event, 'Sabaq-Para')">Sabaq-Para</button>
         <button class="tablinks" onclick="hifdhType(event, 'Daur')">Daur</button>
         <button class="tablinks" onclick="hifdhType(event, 'Nazra')">Nazra</button>
@@ -435,6 +457,7 @@
         for (let i = 0; i < studentNames.length; i++) {
             let row = table.insertRow();
             row.id = 'row' + i;
+            row.setAttribute('class', 'hideable_row');
 
             let nameCell = row.insertCell(0);
 
@@ -460,26 +483,14 @@
             checkbox.type = "checkbox";
             checkbox.setAttribute('class', 'tgl tgl-ios');
             checkbox.setAttribute('value', 'hide');
-            checkbox.setAttribute('id', 'hideable_col' + i);
+            checkbox.setAttribute('id', 'hideable_row' + i);
             checkbox.setAttribute('onchange', 'hideShowRow(this.id);');
             checkboxCell.appendChild(checkbox);
             let checkboxLabel = document.createElement("label");
             checkboxLabel.setAttribute('class', 'tgl-btn');
-            checkboxLabel.setAttribute('for', 'hideable_col' + i);
+            checkboxLabel.setAttribute('for', 'hideable_row' + i);
             checkboxCell.appendChild(checkboxLabel);
 
-            // q: how can i make this juz cell only appear if the checkbox is checked?
-            // a: add a class to the cell, and then use css to hide it
-            // q: how to make a class for the cell and then use css to hide it? I mean give me the exact code
-            // a: I can't give you the exact code, but I can give you an example of how to do it
-            // a: first, you need to add a class to the cell
-            // a: let juzCell = row.insertCell(2);
-            // a: juzCell.setAttribute('class', 'hideable_col');
-            // a: then, you need to add css to hide the cell
-            // a: .hideable_col { display: none; }
-            // a: then, you need to add an onchange event to the checkbox
-            // a: checkbox.setAttribute('onchange', 'hideShowRow(this.id);');
-            // a: then, you need to add a function to hide/show the cell
 
             // a: function hideShowRow(id) {
             // a:     let cell = document.getElementById(id);
@@ -729,28 +740,52 @@
         }
     }
 
-    function hideShowRow(rowId) {
-        var checkboxValue = document.getElementById(rowId).value;
-        if (checkboxValue == "hide") {
-            var row = document.getElementById(rowId);
+    function fetchAllRows() {
+        var rows = document.getElementsByClassName('hideable_row');
 
-            row.style.display = "none";
+        for (let i = 0; i < rows.length; i++) {
+            var tds = rows[i].getElementsByTagName('td');
 
-            for (let i = 0; i < document.getElementsByClassName(rowId + "_head").length; i++) {
-                document.getElementsByClassName(rowId + "_head")[i].style.display = "none";
-                document.getElementById(rowId).value = "show";
-            }
-        } else {
-            let allRows = document.getElementsByClassName(rowId);
-            for (let i = 0; i < allRows.length; i++) {
-                allRows[i].style.display = "table-row";
-            }
-            for (let i = 0; i < document.getElementsByClassName(rowId + "_head").length; i++) {
-                document.getElementsByClassName(rowId + "_head")[i].style.display = "table-row";
-                document.getElementById(rowId).value = "hide";
+            for (let j = 0; j < tds.length; j++) {
+                if (tds[j].classList.contains('hidden-column')) {
+                    tds[j].style.display = 'none';
+                }
             }
         }
     }
+
+
+    {#function fetchAllRows() {#}
+    {#    var rows = document.getElementsByClassName('hideable_row');#}
+    {##}
+    {#    for (let i = 0; i < rows.length; i++) {#}
+    {#        var tds = rows[i].getElementsByTagName('td');#}
+    {##}
+    {#        for (let j = 0; j < tds.length; j++) {#}
+    {#            if (tds[j].classList.contains('hidden-column')) {#}
+    {#                tds[j].classList.add('hidden');#}
+    {#            } else {#}
+    {#                tds[j].classList.remove('hidden');#}
+    {#            }#}
+    {#        }#}
+    {#    }#}
+
+
+    {#function fetchAllRows() {#}
+    {#    var rows = document.getElementsByClassName('hideable_row');#}
+    {##}
+    {#    for (let i = 0; i < rows.length; i++) {#}
+    {#        var tds = rows[i].getElementsByTagName('td');#}
+    {##}
+    {#        for (let j = 0; j < tds.length; j++) {#}
+    {#            if (tds[j].classList.contains('hidden-column')) {#}
+    {#                tds[j].style.visibility = 'hidden';  // The content becomes invisible#}
+    {#                tds[j].style.width = '0';  // The cell collapses#}
+    {#                tds[j].style.padding = '0';  // Remove padding#}
+    {#            }#}
+    {#        }#}
+    {#    }#}
+
 
 </script>
 </body>
